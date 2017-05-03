@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
     <p>List of rules</p>`
 })
 
-// Component class
-export class RulesComponent {}
+export class RulesComponent {};

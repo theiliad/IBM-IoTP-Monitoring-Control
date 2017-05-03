@@ -5,15 +5,18 @@ import { Component } from '@angular/core';
   template: `
     <aside class="sidebar" ng-controller="sidebar">
         <ul class="sidebarItems">
-            <li [routerLinkActive]="['active']">
-                <a [routerLink]="['/devices']"><i class="icon-location"></i>Devices</a>
-            </li>
-
-            <li [routerLinkActive]="['active']">
-                <a [routerLink]="['/rules']"><i class="icon-location"></i>Rules</a>
+            <li [routerLinkActive]="['active']" *ngFor="let item of routes;">
+                <a [routerLink]="[item.link]">
+                    <i class="icon-location"></i>{{item.title}}
+                </a>
             </li>
         </ul>
     </aside>`
 })
 
-export class SidebarComponent {}
+export class SidebarComponent {
+    routes = [
+        {title: 'Devices', link: '/devices'},
+        {title: 'Rules', link: '/rules'}
+    ];
+};

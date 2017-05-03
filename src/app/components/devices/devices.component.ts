@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
     <p>List of devices</p>`
 })
 
-// Component class
-export class DevicesComponent {}
+export class DevicesComponent {};
