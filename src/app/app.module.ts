@@ -5,6 +5,7 @@ import { HttpModule }           from '@angular/http';
 
 import { AppComponent }         from './app.component';
 import { HeaderComponent }      from './components/header/header.component';
+import { SidebarComponent }     from './components/sidebar/sidebar.component'
 import { DevicesComponent }     from './components/devices/devices.component';
 import { RulesComponent }       from './components/rules/rules.component';
 import { routing }              from './app.routes';
@@ -14,6 +15,7 @@ import { routing }              from './app.routes';
   declarations: [
     AppComponent,
     HeaderComponent,
+    SidebarComponent,
     DevicesComponent,
     RulesComponent
   ],
