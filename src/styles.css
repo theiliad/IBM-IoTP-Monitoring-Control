@@ -270,7 +270,7 @@ header .userImg img {
 
 aside.sidebar,
 .content .mainContent {
-    padding-top: 85px;
+    padding-top: 15px;
 }
 
 
@@ -285,7 +285,7 @@ aside.sidebar {
     margin-left: -200px;
     height: 100%;
     overflow-y: auto;
-    background: #3e78bc;
+    background: #1f3e54;
     color: #fff;
     -webkit-transition: all .2s ease-in;
     -moz-transition: all .2s ease-in;
@@ -318,14 +318,14 @@ aside.sidebar ul.sidebarItems li a {
 }
 
 aside.sidebar ul.sidebarItems li a:hover {
-    background: #3374aa;
+    background: #173144;
     padding-left: 40px;
 }
 
 aside.sidebar ul.sidebarItems li.active a {
-    background: #386a93;
+    background: #284c65;
     font-weight: 400;
-    border-left: 4px solid #f37636;
+    border-left: 4px solid #00b4a0;
     padding-left: 26px;
 }
 
