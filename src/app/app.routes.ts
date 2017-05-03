@@ -1,7 +1,7 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DevicesComponent } from './devices/devices.component';
-import { RulesComponent } from './rules/rules.component';
+import { DevicesComponent } from './components/devices/devices.component';
+import { RulesComponent } from './components/rules/rules.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/devices', pathMatch: 'full' },
