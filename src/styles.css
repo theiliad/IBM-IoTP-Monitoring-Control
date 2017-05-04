@@ -231,6 +231,7 @@ header {
     font-size: 17px;
     font-weight: 300;
     line-height: 48px;
+    overflow: hidden;
 }
 
 header .productTitle a {
