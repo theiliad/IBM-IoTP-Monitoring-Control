@@ -17,7 +17,15 @@ export class DevicesComponent implements OnInit {
             console.log("Devices:", devices);
 
             this.devices = devices["results"];
-          },
-          error =>  this.errorMessage = <any>error);
+
+            for (let device of this.devices) {
+                this.ibmIoTP.getLastCachedEvent(device.deviceId).then(
+                  eventData => {
+                    console.log("Event:", atob(eventData["payload"]));
+
+                    device["data"] = JSON.parse(atob(eventData["payload"]))["d"];
+                  }, error =>  this.errorMessage = <any>error);
+            }
+          }, error =>  this.errorMessage = <any>error);
   }
 };

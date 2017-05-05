@@ -32,25 +32,21 @@
             <table class="table">
                 <thead>
                     <tr>
-                    <th>
-                        <strong>Device ID</strong>
-                    </th>
-                    <th>Total</th>
-                    <th>In Use</th>
-                    <th>Available</th>
-                    <th>Unavailable</th>
+                        <th>#</th>
+                        <th>Device ID</th>
+                        <th>RPM</th>
+                        <th>Running</th>
+                        <th>Last Updated</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr *ngFor="let device of devices; let i = index;">
-                        <td>
-                            {{device.deviceId}}
-                        </td>
-                        <td class="align-right">8</td>
-                        <td class="align-right">0</td>
-                        <td class="align-right">8</td>
-                        <td class="align-right">0</td>
+                        <td>{{i + 1}}</td>
+                        <td>{{device.deviceId}}</td>
+                        <td class="align-right">{{device.data !== undefined ? device.data.rpm : "--"}}</td>
+                        <td class="align-right">{{device.data !== undefined ? device.data.running : "--"}}</td>
+                        <td class="align-right">{{device.data !== undefined ? (device.data.ts | date) : "--"}}</td>
                     </tr>
                 </tbody>
             </table>

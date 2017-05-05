@@ -13,6 +13,7 @@ export class IBMIoTP {
     private baseURL: string =           `/api`;
     private devicesURL: string =        `/device/types/${this.deviceType}/devices`;
     private statusURL: string =        `/service-status`;
+    private lastCachedEventURL: string = `/device/types/${this.deviceType}/devices/{deviceId}/events/sensorData`
 
     constructor(private http: Http) {}
 
@@ -27,6 +28,15 @@ export class IBMIoTP {
 
     getStatus(): Promise<Object> {
         let url = this.baseURL.concat(this.statusURL);
+
+        return this.http.get(url)
+                .toPromise()
+                .then(response => response.json())
+                .catch(this.handleError);
+    }
+
+    getLastCachedEvent(deviceID: string): Promise<Object> {
+        let url = this.baseURL.concat(this.lastCachedEventURL.replace("{deviceId}", deviceID));
 
         return this.http.get(url)
                 .toPromise()

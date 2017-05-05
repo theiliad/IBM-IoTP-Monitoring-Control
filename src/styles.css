@@ -1131,6 +1131,7 @@ div.em-Modal ul.modalMenu li.active i {
   border-top: 1px solid #dddddd;
 }
 .table > thead > tr > th {
+  font-weight: 500;
   vertical-align: bottom;
   border-bottom: 2px solid #dddddd;
 }
