@@ -1,6 +1,6 @@
 <div class="container-50 noTopPadding container-30-right ng-scope">
     <div class="floatLeft">
-        <h4>Users Insights</h4>
+        <h4>Devices Registered</h4>
     </div>
 </div>
 
@@ -18,23 +18,55 @@
     </div>
 </div>
 
+<div *ngIf="this.devices !== undefined && this.devices.length > 0" class="container-50 paddingTop">
+      <div class="floatRight">
+        <a href="/admin/ui/device">Manage Devices</a>
+      </div>
+      
+      <div class="dashItem ng-scope" ng-if="$ctrl.regions">
+        <div class="dashTitleBar">
+            <h3>Car availability (Zone)</h3>
+        </div>
 
+        <div class="primary">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th>
+                        <strong>Device ID</strong>
+                    </th>
+                    <th>Total</th>
+                    <th>In Use</th>
+                    <th>Available</th>
+                    <th>Unavailable</th>
+                    </tr>
+                </thead>
 
+                <tbody>
+                    <tr *ngFor="let device of devices; let i = index;">
+                        <td>
+                            {{device.deviceId}}
+                        </td>
+                        <td class="align-right">8</td>
+                        <td class="align-right">0</td>
+                        <td class="align-right">8</td>
+                        <td class="align-right">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-<h2>Devices</h2>
-<p>List of devices</p>
+<div class="container-50 paddingTop">
+    <strong *ngIf="this.devices !== undefined && this.devices.length === 0">
+        No Devices Found
+    </strong>
 
-<strong *ngIf="this.devices !== undefined && this.devices.length === 0">
-    No Devices Found
-</strong>
-
-<strong *ngIf="this.devices === undefined">
-    Loading Devices
-</strong>
-
-<li *ngFor="let device of devices; let i = index;">
-    {{i}} - {{device.deviceId}}
-</li>
+    <strong *ngIf="this.devices === undefined">
+        Loading Devices...
+    </strong>
+</div>
 
 <!--<div ui-view="" class="ng-scope" style=""><div class="container-50 noTopPadding container-30-right ng-scope">
     <div class="floatLeft">
