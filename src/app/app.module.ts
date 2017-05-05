@@ -1,13 +1,16 @@
 import { BrowserModule }        from '@angular/platform-browser';
 import { NgModule }             from '@angular/core';
 import { FormsModule }          from '@angular/forms';
-import { HttpModule }           from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent }         from './app.component';
 import { HeaderComponent }      from './components/header/header.component';
 import { SidebarComponent }     from './components/sidebar/sidebar.component'
 import { DevicesComponent }     from './components/devices/devices.component';
 import { RulesComponent }       from './components/rules/rules.component';
+
+import { IBMIoTP }              from './services/iotp/ibmIoTP.service'
+
 import { routing }              from './app.routes';
 
 
@@ -23,9 +26,10 @@ import { routing }              from './app.routes';
     BrowserModule,
     FormsModule,
     HttpModule,
+    JsonpModule,
     routing
   ],
-  providers: [],
+  providers: [IBMIoTP],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
