@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'sidebar-component',
   template: `
-    <aside class="sidebar" ng-controller="sidebar">
+    <aside class="sidebar">
         <ul class="sidebarItems">
             <li [routerLinkActive]="['active']" *ngFor="let item of routes;">
                 <a [routerLink]="[item.link]">

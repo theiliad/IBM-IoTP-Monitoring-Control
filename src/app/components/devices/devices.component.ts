@@ -2,10 +2,7 @@ import { Component, OnInit }  from '@angular/core';
 import { IBMIoTP }            from '../../services/iotp/ibmIoTP.service'
 
 @Component({
-  template: `
-    <h2>Devices</h2>
-    <p>List of devices</p>
-    {{devices}}`
+  templateUrl: './devices.component.html',
 })
 
 export class DevicesComponent implements OnInit {
@@ -16,7 +13,11 @@ export class DevicesComponent implements OnInit {
 
   ngOnInit() {
     this.ibmIoTP.getDevices().then(
-          devices => console.log(devices),
+          devices => {
+            console.log("Devices:", devices);
+
+            this.devices = devices["results"];
+          },
           error =>  this.errorMessage = <any>error);
   }
 };

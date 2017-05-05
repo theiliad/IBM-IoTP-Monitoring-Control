@@ -15,7 +15,7 @@ export class IBMIoTP {
 
     constructor(private http: Http) {}
 
-    getDevices(): Promise<void> {
+    getDevices(): Promise<Object> {
         let url = this.baseURL.concat(this.devicesURL);
 
         return this.http.get(url)
