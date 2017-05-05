@@ -12,11 +12,21 @@ export class IBMIoTP {
     // Endpoint URLs
     private baseURL: string =           `/api`;
     private devicesURL: string =        `/device/types/${this.deviceType}/devices`;
+    private statusURL: string =        `/service-status`;
 
     constructor(private http: Http) {}
 
     getDevices(): Promise<Object> {
         let url = this.baseURL.concat(this.devicesURL);
+
+        return this.http.get(url)
+                .toPromise()
+                .then(response => response.json())
+                .catch(this.handleError);
+    }
+
+    getStatus(): Promise<Object> {
+        let url = this.baseURL.concat(this.statusURL);
 
         return this.http.get(url)
                 .toPromise()

@@ -8,7 +8,7 @@ import { IBMIoTP }            from '../../services/iotp/ibmIoTP.service'
 export class DevicesComponent implements OnInit {
   errorMessage: string;
   devices;
-
+  
   constructor (private ibmIoTP: IBMIoTP) {}
 
   ngOnInit() {
