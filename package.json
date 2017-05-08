@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^2.4.0",
     "@angular/platform-browser-dynamic": "^2.4.0",
     "@angular/router": "^3.4.0",
+    "@types/socket.io-client": "^1.4.29",
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "core-js": "^2.4.1",
@@ -28,8 +29,10 @@
     "hbs": "~4.0.1",
     "http-proxy-middleware": "^0.17.4",
     "morgan": "~1.7.0",
+    "mqtt": "^2.7.1",
     "rxjs": "^5.1.0",
     "serve-favicon": "~2.3.0",
+    "socket.io": "^1.7.4",
     "zone.js": "^0.7.6"
   },
   "devDependencies": {

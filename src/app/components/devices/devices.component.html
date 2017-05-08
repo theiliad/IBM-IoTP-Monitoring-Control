@@ -66,4 +66,11 @@
     <strong *ngIf="this.devices === undefined && errorMessage !== undefined">
         Something went wrong!
     </strong>
+
+    <h2>Socket Test</h2>
+    <div *ngFor="let message of messages">
+        {{message.text}}
+    </div>
+    <input [(ngModel)]="message" />
+    <button (click)="sendMessage()">Send</button>
 </div>

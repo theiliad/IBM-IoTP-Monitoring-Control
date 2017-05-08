@@ -1,17 +1,28 @@
-import { Component, OnInit }  from '@angular/core';
-import { IBMIoTP }            from '../../services/iotp/ibmIoTP.service'
+import { Component, OnInit }    from '@angular/core';
+import { IBMIoTPService }       from '../../services/iotp/ibmIoTP.service';
+import { LiveDataService }      from '../../services/livedata/liveData.service';
 
 @Component({
   templateUrl: './devices.component.html',
 })
 
 export class DevicesComponent implements OnInit {
+  // Devices List
   errorMessage: string;
   devices;
   
-  constructor (private ibmIoTP: IBMIoTP) {}
+  // Live Data
+  connection;
+  messages = [];
+  message;
+
+  constructor (private ibmIoTP: IBMIoTPService, private liveDataService: LiveDataService) {}
 
   ngOnInit() {
+    this.connection = this.liveDataService.getMessages().subscribe(message => {
+      this.messages.push(message);
+    });
+
     this.ibmIoTP.getDevices().then(
           devices => {
             console.log("Devices:", devices);
@@ -27,5 +38,13 @@ export class DevicesComponent implements OnInit {
                   }, error =>  this.errorMessage = <any>error);
             }
           }, error =>  this.errorMessage = <any>error);
+  }
+
+  sendMessage() {
+    this.liveDataService.sendMessage(this.message);
+  }
+  
+  ngOnDestroy() {
+    this.connection.unsubscribe();
   }
 };

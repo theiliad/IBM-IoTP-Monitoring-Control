@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class IBMIoTP {
+export class IBMIoTPService {
     // https://docs.internetofthings.ibmcloud.com/swagger/v0002.html
     private deviceType: string  =   "iot-conveyor-belt";
     

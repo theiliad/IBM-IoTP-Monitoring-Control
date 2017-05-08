@@ -1,5 +1,5 @@
 import { Component, OnInit }  from '@angular/core';
-import { IBMIoTP }            from '../../services/iotp/ibmIoTP.service'
+import { IBMIoTPService }            from '../../services/iotp/ibmIoTP.service'
 
 @Component({
   templateUrl: './status.component.html',
@@ -15,7 +15,7 @@ export class StatusComponent implements OnInit {
   iotpStatus;
   iotpStatusKeys;
 
-  constructor (private ibmIoTP: IBMIoTP) {}
+  constructor (private ibmIoTP: IBMIoTPService) {}
 
   ngOnInit() {
     this.ibmIoTP.getStatus().then(

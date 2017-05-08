@@ -2,7 +2,8 @@ const express = require('express')
       , path = require('path')
       , http = require('http')
       , bodyParser = require('body-parser')
-      , proxy = require('http-proxy-middleware');
+      , proxy = require('http-proxy-middleware')
+      , io = require('socket.io')(http);
 
 const app = express();
 
@@ -27,6 +28,22 @@ app.use('/api/**', proxy(
     }
   }
 ));
+
+io.on('connection', (socket) => {
+  console.log('user connected');
+  
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+  
+  socket.on('new-data', (message) => {
+    console.log("New Data: ", message);
+
+    io.emit('message', {type:'new-data', text: message});    
+  });
+});
+
+io.listen(5000);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
