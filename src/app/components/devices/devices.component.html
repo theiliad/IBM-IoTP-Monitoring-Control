@@ -25,7 +25,7 @@
       
       <div class="dashItem ng-scope" ng-if="$ctrl.regions">
         <div class="dashTitleBar">
-            <h3>Car availability (Zone)</h3>
+            <h3>Device Availability</h3>
         </div>
 
         <div class="primary">
@@ -37,6 +37,7 @@
                         <th>RPM</th>
                         <th>Running</th>
                         <th>Last Updated</th>
+                        <th>Live Data</th>
                     </tr>
                 </thead>
 
@@ -47,6 +48,7 @@
                         <td class="align-right">{{device.data !== undefined ? device.data.rpm : "--"}}</td>
                         <td class="align-right">{{device.data !== undefined ? device.data.running : "--"}}</td>
                         <td class="align-right">{{device.data !== undefined ? (device.data.ts | date) : "--"}}</td>
+                        <td class="align-right"><input type="checkbox" [(ngModel)]="liveData[i]" (change)="setLiveData(i, $event.target.checked === true ? true : false);"></td>
                     </tr>
                 </tbody>
             </table>

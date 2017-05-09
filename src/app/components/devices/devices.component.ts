@@ -13,6 +13,7 @@ export class DevicesComponent implements OnInit {
   
   // Live Data
   connection;
+  liveData = {};
   messages = [];
   message;
 
@@ -29,6 +30,7 @@ export class DevicesComponent implements OnInit {
 
             this.devices = devices["results"];
 
+            var index = 0;
             for (let device of this.devices) {
                 this.ibmIoTP.getLastCachedEvent(device.deviceId).then(
                   eventData => {
@@ -36,12 +38,37 @@ export class DevicesComponent implements OnInit {
 
                     device["data"] = JSON.parse(atob(eventData["payload"]))["d"];
                   }, error =>  this.errorMessage = <any>error);
+                
+                if (index < 5) {
+                  this.setLiveData(index, true);
+
+                  index += 1;
+                }
             }
           }, error =>  this.errorMessage = <any>error);
   }
 
   sendMessage() {
-    this.liveDataService.sendMessage(this.message);
+    this.liveDataService.sendMessage('new-data', this.message);
+  }
+
+  setLiveData(index, turnOn) {
+    if (turnOn) {
+      console.log("Turn ON Live Data for", this.devices[index].deviceId);
+
+      this.liveData[index] = true;
+    } else {
+      console.log("Turn OFF Live Data for", this.devices[index].deviceId);
+
+      this.liveData[index] = false;
+    }
+
+    const socketData = {
+      deviceId: this.devices[index].deviceId,
+      turnOn: this.liveData[index]
+    };
+    
+    this.liveDataService.sendMessage('mqtt_set', JSON.stringify(socketData));
   }
   
   ngOnDestroy() {

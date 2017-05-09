@@ -6,8 +6,8 @@ export class LiveDataService {
   private url = 'http://localhost:5000';  
   private socket;
   
-  sendMessage(message){
-    this.socket.emit('new-data', message);    
+  sendMessage(topic, message){
+    this.socket.emit(topic, message);    
   }
   
   getMessages() {

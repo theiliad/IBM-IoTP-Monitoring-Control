@@ -48,7 +48,7 @@ try {
   client.on('connect', function () {
     console.log("MQTT CONNECTED");
 
-    // client.subscribe('presence')
+    client.subscribe('iot-2/type/iot-conveyor-belt/id/mikebelt/evt/sensorData/fmt/json');
     // client.publish('presence', 'Hello mqtt')
   });
 } catch (e) {
@@ -76,6 +76,12 @@ io.on('connection', (socket) => {
     console.log("New Data: ", message);
 
     io.emit('message', {type:'new-data', text: message});    
+  });
+
+  socket.on('mqtt_set', (message) => {
+    console.log("Set MQTT message: ", message);
+
+    // io.emit('message', {type:'new-data', text: message});    
   });
 });
 /* ===== socket.io client --> END ===== */
