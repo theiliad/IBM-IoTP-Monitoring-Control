@@ -22,6 +22,19 @@ export class DevicesComponent implements OnInit {
   ngOnInit() {
     this.connection = this.liveDataService.getMessages().subscribe(message => {
       this.messages.push(message);
+
+      if (message["type"] === "new_sensorData") {
+        console.log("TEXT", message["text"]);
+
+        var payload   = JSON.parse(message["text"])["d"];
+        var deviceId  = payload["id"];
+        
+        for (let device of this.devices) {
+          if (device.deviceId === deviceId) {
+            device["data"] = payload;
+          }
+        }
+      }
     });
 
     this.ibmIoTP.getDevices().then(

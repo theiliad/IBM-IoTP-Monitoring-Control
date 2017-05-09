@@ -14,7 +14,7 @@ export class LiveDataService {
     let observable = new Observable(observer => {
       this.socket = io(this.url);
       this.socket.on('message', (data) => {
-        observer.next(data);    
+        observer.next(data);
       });
 
       return () => {

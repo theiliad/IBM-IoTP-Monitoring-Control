@@ -47,7 +47,7 @@
                         <td>{{device.deviceId}}</td>
                         <td class="align-right">{{device.data !== undefined ? device.data.rpm : "--"}}</td>
                         <td class="align-right">{{device.data !== undefined ? device.data.running : "--"}}</td>
-                        <td class="align-right">{{device.data !== undefined ? (device.data.ts | date) : "--"}}</td>
+                        <td class="align-right">{{device.data !== undefined ? (device.data.ts | date:'medium') : "--"}}</td>
                         <td class="align-right"><input type="checkbox" [(ngModel)]="liveData[i]" (change)="setLiveData(i, $event.target.checked === true ? true : false);"></td>
                     </tr>
                 </tbody>
