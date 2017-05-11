@@ -45,6 +45,8 @@ app.use('/api/**', proxy(
 io.on('connection', (socket) => {
   console.log(`Socket ${socket.id} connected`);
 
+  var timeout = 0;
+
   socketsOpen.push(socket.id);
 
   console.log("Sockets Open: ", socketsOpen);
@@ -99,7 +101,15 @@ io.on('connection', (socket) => {
 
     var payload = JSON.parse(message);
 
-    mqttClient.subscribe(`iot-2/type/iot-conveyor-belt/id/${payload.deviceId}/evt/sensorData/fmt/json`);
+    (function(deviceId){
+        setTimeout(function(){
+            // mqttClient.subscribe(`iot-2/type/iot-conveyor-belt/id/${deviceId}/evt/sensorData/fmt/json`);
+
+            console.log(`Subscribed to ${deviceId}`);
+        }, timeout);
+    })(payload.deviceId);
+
+    timeout += Math.random() * 500;
     // io.emit('message', {type:'new-data', text: message});    
   });
 });
