@@ -20,9 +20,11 @@ const apiToken   = "z*kboI(YG5v&Z_2(0m";
 // const org        = "3v5whr";
 // const apiKey     = "a-3v5whr-rapidl4k3r";
 // const apiToken   = "v9efCU+4@bUnOWZlm8";
-const appId      = "test2f2";
+const appId      = "test2f23f232";
 
-var client;
+var mqttClient;
+
+var socketsOpen = [];
 
 /* ===== Proxy calls to /api/** to the IBM IoT APIs ===== */
 app.use('/api/**', proxy(
@@ -41,40 +43,49 @@ app.use('/api/**', proxy(
 
 /* ===== socket.io client - LIVE DATA ===== */
 io.on('connection', (socket) => {
-  console.log('user connected');
+  console.log(`Socket ${socket.id} connected`);
+
+  socketsOpen.push(socket.id);
+
+  console.log("Sockets Open: ", socketsOpen);
 
   /* ===== MQTT client - LIVE DATA ===== */
-  const iot_host    = `wss://${org}.messaging.internetofthings.ibmcloud.com:443`
+  const iot_host    = `wss://${org}.messaging.internetofthings.ibmcloud.com`
     , iot_clientid  = `a:${org}:${appId}`;
-  
-  client = mqtt.connect(iot_host, {
-    clientId: iot_clientid,
-    username: apiKey,
-    password: apiToken
-  });
 
   try {
-    client.on('connect', function () {
+    mqttClient = mqtt.connect(iot_host, {
+      clientId: iot_clientid,
+      username: apiKey,
+      password: apiToken
+    });
+
+    mqttClient.on('connect', function () {
       console.log("MQTT CONNECTED");
-      // client.publish('presence', 'Hello mqtt')
+      // mqttClient.publish('presence', 'Hello mqtt')
+    });
+
+    mqttClient.on('message', function (topic, message) {
+      // message is Buffer
+      console.log(message.toString());
+
+      // mqttClient.end()
+
+      io.emit('message', {type:'new_sensorData', text: message.toString()});
     });
   } catch (e) {
-    console.error(e);
+    console.error("Connect Unsuccessful", e);
   }
-
-
-  client.on('message', function (topic, message) {
-    // message is Buffer
-    console.log(message.toString());
-
-    // client.end()
-
-    io.emit('message', {type:'new_sensorData', text: message.toString()});
-  });
-  /* ===== MQTT client --> END ===== */
+  
+  /* ===== MQTT mqttClient --> END ===== */
   
   socket.on('disconnect', function(){
-    console.log('user disconnected');
+    console.log(`Socket ${socket.id} disconnected`);
+
+    var index = socketsOpen.indexOf(socket.id);
+    socketsOpen.splice(index, 1);
+
+    console.log("Sockets Open: ", socketsOpen);
   });
   
   socket.on('new-data', (message) => {
@@ -88,7 +99,7 @@ io.on('connection', (socket) => {
 
     var payload = JSON.parse(message);
 
-    client.subscribe(`iot-2/type/iot-conveyor-belt/id/${payload.deviceId}/evt/sensorData/fmt/json`);
+    mqttClient.subscribe(`iot-2/type/iot-conveyor-belt/id/${payload.deviceId}/evt/sensorData/fmt/json`);
     // io.emit('message', {type:'new-data', text: message});    
   });
 });
