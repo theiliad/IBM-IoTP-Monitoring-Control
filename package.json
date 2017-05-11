@@ -4,7 +4,6 @@
   "license": "MIT",
   "scripts": {
     "ng":          "ng",
-    "postinstall": "npm install -g @angular/cli",
     "prestart":    "ng build",
     "start":       "node app.js",
     "express":     "node app.js",
@@ -17,6 +16,7 @@
   "dependencies": {
     "@angular/common": "^2.4.0",
     "@angular/compiler": "^2.4.0",
+    "@angular/compiler-cli":"^2.4.0",
     "@angular/core": "^2.4.0",
     "@angular/forms": "^2.4.0",
     "@angular/http": "^2.4.0",

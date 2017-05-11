@@ -57,6 +57,20 @@ try {
   mqttClient.on('connect', function () {
     console.log("MQTT CONNECTED");
     // mqttClient.publish('presence', 'Hello mqtt')
+
+    console.log(devicesToSubscribeTo);
+
+    if (devicesToSubscribeTo.length > 0) {
+      for (deviceId of devicesToSubscribeTo) {
+        var topic = `iot-2/type/iot-conveyor-belt/id/${deviceId}/evt/sensorData/fmt/json`;
+
+        mqttClient.subscribe(topic);
+
+        console.log(`Subscribed to ${deviceId}`);
+      }
+
+      devicesToSubscribeTo = [];
+    }
   });
 
   mqttClient.on('message', function (topic, message) {
@@ -100,12 +114,17 @@ io.on('connection', (socket) => {
     console.log("Set MQTT message: ", message);
 
     var payload = JSON.parse(message);
-    var topic = `iot-2/type/iot-conveyor-belt/id/${payload.deviceId}/evt/sensorData/fmt/json`;
 
-    if (payload.turnOn)   mqttClient.subscribe(topic);
-    else                  mqttClient.unsubscribe(topic);
+    if (mqttClient.isConnected) {
+      var topic = `iot-2/type/iot-conveyor-belt/id/${payload.deviceId}/evt/sensorData/fmt/json`;
 
-    console.log((payload.turnOn ? `` : `Un-`) + `Subscribed` + (payload.turnOn ? ` to ` : ` from `) + `${payload.deviceId}`);
+      if (payload.turnOn)   mqttClient.subscribe(topic);
+      else                  mqttClient.unsubscribe(topic);
+
+      console.log((payload.turnOn ? `` : `Un-`) + `Subscribed` + (payload.turnOn ? ` to ` : ` from `) + `${payload.deviceId}`);
+    } else if (!mqttClient.isConnected && payload.turnOn) {
+      devicesToSubscribeTo.push(payload.deviceId);
+    }
 
     // io.emit('message', {type:'new-data', text: message});    
   });
