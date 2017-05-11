@@ -77,8 +77,6 @@ try {
 io.on('connection', (socket) => {
   console.log(`Socket ${socket.id} connected`);
 
-  var timeout = 0;
-
   socketsOpen.push(socket.id);
 
   console.log("Sockets Open: ", socketsOpen);
@@ -102,16 +100,13 @@ io.on('connection', (socket) => {
     console.log("Set MQTT message: ", message);
 
     var payload = JSON.parse(message);
+    var topic = `iot-2/type/iot-conveyor-belt/id/${payload.deviceId}/evt/sensorData/fmt/json`;
 
-    (function(deviceId){
-        setTimeout(function(){
-            mqttClient.subscribe(`iot-2/type/iot-conveyor-belt/id/${deviceId}/evt/sensorData/fmt/json`);
+    if (payload.turnOn)   mqttClient.subscribe(topic);
+    else                  mqttClient.unsubscribe(topic);
 
-            console.log(`Subscribed to ${deviceId}`);
-        }, timeout);
-    })(payload.deviceId);
+    console.log((payload.turnOn ? `` : `Un-`) + `Subscribed` + (payload.turnOn ? ` to ` : ` from `) + `${payload.deviceId}`);
 
-    timeout += Math.random() * 500;
     // io.emit('message', {type:'new-data', text: message});    
   });
 });

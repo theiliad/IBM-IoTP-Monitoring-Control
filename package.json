@@ -3,14 +3,15 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ng":       "ng",
-    "prestart": "ng build",
-    "start":    "node app.js",
-    "express":  "node app.js",
-    "build":    "ng build",
-    "test":     "ng test",
-    "lint":     "ng lint",
-    "e2e":      "ng e2e"
+    "ng":          "ng",
+    "postinstall": "npm install -g @angular/cli",
+    "prestart":    "ng build",
+    "start":       "node app.js",
+    "express":     "node app.js",
+    "build":       "ng build",
+    "test":        "ng test",
+    "lint":        "ng lint",
+    "e2e":         "ng e2e"
   },
   "private": true,
   "dependencies": {
