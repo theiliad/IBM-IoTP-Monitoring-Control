@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'static')));
 
 // IoT Platform Connectivity related info
 const org        = "hbvlsl";
@@ -134,7 +134,7 @@ io.on('connection', (socket) => {
 io.listen(5000);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+  res.sendFile(path.resolve('./static/index.html'));
 });
 
 const port = process.env.PORT || '3000';
