@@ -3,13 +3,14 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ng":          "ng",
-    "start":       "node app.js",
-    "build":       "ng build",
-    "test":        "ng test",
-    "lint":        "ng lint",
-    "e2e":         "ng e2e",
-    "push": "npm run build && cf push"
+    "ng":         "ng",
+    "start":      "node app.js",
+    "build":      "ng build",
+    "build-run":  "ng build && node app.js",
+    "test":       "ng test",
+    "lint":       "ng lint",
+    "e2e":        "ng e2e",
+    "push":       "ng build -prod && cf push"
   },
   "private": true,
   "engines": {
