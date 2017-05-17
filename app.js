@@ -14,13 +14,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'static')));
 
 // IoT Platform Connectivity related info
-const org        = "hbvlsl";
-const apiKey     = "a-hbvlsl-znpivfiszs";
-const apiToken   = "z*kboI(YG5v&Z_2(0m";
-// const org        = "3v5whr";
-// const apiKey     = "a-3v5whr-rapidl4k3r";
-// const apiToken   = "v9efCU+4@bUnOWZlm8";
-const appId      = "test2f23f232";
+const basicConfig = JSON.parse(process.env.basicConfig);
+
+console.log("BASIC CONFIG", basicConfig);
+console.log("BASIC CONFIG", basicConfig.org);
+
+const org         = basicConfig.org
+    , apiKey      = basicConfig.apiKey
+    , apiToken    = basicConfig.apiToken
+    , appId       = "test2f23f232";
+
+    console.log("BASIC CONFIG", basicConfig);
+    console.log("BASIC CONFIG", org);
+    console.log("BASIC CONFIG", apiKey);
+    console.log("BASIC CONFIG", apiToken);
 
 var mqttClient;
 
@@ -149,4 +156,7 @@ const port = process.env.PORT || '3000';
 
 const server = http.createServer(app);
 
-server.listen(port, () => console.log(`APP running on localhost:${port}`));
+server.listen(port, () => {
+
+  console.log(`APP running on localhost:${port}`);
+});
