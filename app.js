@@ -71,6 +71,10 @@ try {
 
       devicesToSubscribeTo = [];
     }
+
+    io.emit('message', {
+      type:'mqtt_status', text: {connected: true}
+    });
   });
 
   mqttClient.on('message', function (topic, message) {
@@ -108,6 +112,10 @@ io.on('connection', (socket) => {
     console.log("New Data: ", message);
 
     io.emit('message', {type:'new-data', text: message});
+  });
+
+  socket.on('new-data', (message) => {
+    io.emit('message', {type:'mqtt_status', text: {connected: mqttClient.isConnected}});
   });
 
   socket.on('mqtt_set', (message) => {

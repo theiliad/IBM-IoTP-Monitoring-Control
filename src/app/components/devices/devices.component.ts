@@ -16,6 +16,7 @@ export class DevicesComponent implements OnInit {
   liveData = {};
   messages = [];
   message;
+  mqttStatus: boolean = false;
 
   constructor (private ibmIoTP: IBMIoTPService, private liveDataService: LiveDataService) {}
 
@@ -26,15 +27,19 @@ export class DevicesComponent implements OnInit {
       if (message["type"] === "new_sensorData") {
         console.log("TEXT", message["text"]);
 
-        var payload   = JSON.parse(message["text"])["d"];
-        var deviceId  = payload["id"];
+        var payload     = JSON.parse(message["text"])["d"];
+        const deviceId  = payload["id"];
         
         for (let device of this.devices) {
           if (device.deviceId === deviceId) {
             device["data"] = payload;
           }
         }
+      } else if (message["type"] === "mqtt_status") {
+        this.mqttStatus = message["text"].connected;
       }
+
+      this.mqttStatusInquiry();
     });
 
     this.ibmIoTP.getDevices().then(
@@ -51,7 +56,7 @@ export class DevicesComponent implements OnInit {
 
                     device["data"] = JSON.parse(atob(eventData["payload"]))["d"];
                   }, error =>  this.errorMessage = <any>error);
-                
+                  
                 if (index < 5) {
                   this.setLiveData(index, true);
 
@@ -63,6 +68,10 @@ export class DevicesComponent implements OnInit {
 
   sendMessage() {
     this.liveDataService.sendMessage('new-data', this.message);
+  }
+
+  mqttStatusInquiry() {
+    this.liveDataService.sendMessage('mqtt_status_inquiry', {});
   }
 
   setLiveData(index, turnOn) {

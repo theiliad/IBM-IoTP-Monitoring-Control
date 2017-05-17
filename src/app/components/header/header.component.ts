@@ -13,14 +13,6 @@ import { Component } from '@angular/core';
             </div>
             
             <div class="floatRight">
-                <div class="userImg medium-hide">
-                    <img src="assets/img/user.jpg" class="circularImg">
-                </div>
-                
-                <p class="floatRight medium-hide">
-                    Archie
-                </p>
-                
                 <p class="floatRight medium-show large-hide">
                     <a href="#" class="btn btn-demo em-Modal-Call" rel="loginModal">
                         <i class="icon-menu"></i>

@@ -8,7 +8,6 @@ import { AppComponent }         from './app.component';
 import { HeaderComponent }      from './components/header/header.component';
 import { SidebarComponent }     from './components/sidebar/sidebar.component'
 import { DevicesComponent }     from './components/devices/devices.component';
-import { RulesComponent }       from './components/rules/rules.component';
 import { StatusComponent }      from './components/status/status.component';
 
 // Services
@@ -25,7 +24,6 @@ import { routing }              from './app.routes';
     HeaderComponent,
     SidebarComponent,
     DevicesComponent,
-    RulesComponent,
     StatusComponent
   ],
   imports: [

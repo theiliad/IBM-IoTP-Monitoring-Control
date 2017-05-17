@@ -7,7 +7,9 @@
 <div class="clearfix"></div>
 
 <div *ngIf="iotpStatusKeys !== undefined && iotpStatusKeys.length > 0" class="container-50 paddingTop">
-    <ul class="list">
+    <p>Below are the statuses of the services you are using in your <strong>IoT Platform</strong> instance</p>
+
+    <ul class="list" style="margin-top: 10px;">
       <li *ngFor="let key of iotpStatusKeys">
         <strong> {{cleanCamelCase(key)}}:</strong> {{iotpStatus[key] === 'green' ? '✅' : '❌'}}
       </li>

@@ -17,7 +17,6 @@ import { Component } from '@angular/core';
 export class SidebarComponent {
     routes = [
         {title: 'Devices', link: '/devices'},
-        {title: 'Rules', link: '/rules'},
         {title: 'Status', link: '/status'}
     ];
 };
