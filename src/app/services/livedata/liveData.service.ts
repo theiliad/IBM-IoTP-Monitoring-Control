@@ -3,7 +3,7 @@ import { Subject } from 'rxjs/Subject';
 import * as io from 'socket.io-client';
 
 export class LiveDataService {
-  private url = 'http://localhost:5000';  
+  private url = `${window.location.protocol}//${window.location.host}`;  
   private socket;
   
   sendMessage(topic, message){

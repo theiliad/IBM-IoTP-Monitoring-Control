@@ -14,20 +14,38 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'static')));
 
 // IoT Platform Connectivity related info
-const basicConfig = JSON.parse(process.env.basicConfig);
+var basicConfig;
 
-console.log("BASIC CONFIG", basicConfig);
-console.log("BASIC CONFIG", basicConfig.org);
+console.log("ENV_VARS", process.env);
+console.log("ENV_VARS_END");
+
+function configureCredentials(config) {
+	basicConfig = config;
+}
+
+try {
+	var BASIC_CONFIG = require(__dirname + '/basicConfig.json');
+
+  if (process.env.basicConfig) {
+		configureCredentials(JSON.parse(process.env.basicConfig));
+	} else {
+		configureCredentials(BASIC_CONFIG);
+	}
+} catch (error) {
+	console.log(error);
+	console.log("Fallback to Bluemix VCAP_SERVICES");
+
+	if (process.env.VCAP_SERVICES) {
+		configureCredentials(JSON.parse(process.env.basicConfig));
+	} else {
+		console.log("ERROR: IoT Service was not bound!");
+	}
+}
 
 const org         = basicConfig.org
     , apiKey      = basicConfig.apiKey
     , apiToken    = basicConfig.apiToken
     , appId       = "test2f23f232";
-
-    console.log("BASIC CONFIG", basicConfig);
-    console.log("BASIC CONFIG", org);
-    console.log("BASIC CONFIG", apiKey);
-    console.log("BASIC CONFIG", apiToken);
 
 var mqttClient;
 
