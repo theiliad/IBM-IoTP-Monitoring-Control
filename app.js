@@ -3,8 +3,10 @@ const express      = require('express')
       , http       = require('http')
       , bodyParser = require('body-parser')
       , proxy      = require('http-proxy-middleware')
-      , io         = require('socket.io')(http)
+      , Server     = require('socket.io')
       , mqtt       = require('mqtt');
+
+var io;
 
 const app = express();
 
@@ -113,8 +115,26 @@ try {
 } catch (e) {
   console.error("Connect Unsuccessful", e);
 }
-
 /* ===== MQTT mqttClient --> END ===== */
+
+
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve('./static/index.html'));
+});
+
+const port = process.env.PORT || '3000';
+
+const server = http.createServer(app);
+
+server.listen(port, () => {
+
+  console.log(`APP running on localhost:${port}`);
+});
+
+io = Server(server);
+
+
 
 /* ===== socket.io client - LIVE DATA ===== */
 io.on('connection', (socket) => {
@@ -163,18 +183,3 @@ io.on('connection', (socket) => {
   });
 });
 /* ===== socket.io client --> END ===== */
-
-io.listen(5000);
-
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve('./static/index.html'));
-});
-
-const port = process.env.PORT || '3000';
-
-const server = http.createServer(app);
-
-server.listen(port, () => {
-
-  console.log(`APP running on localhost:${port}`);
-});
