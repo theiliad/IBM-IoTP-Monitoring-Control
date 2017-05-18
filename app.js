@@ -13,13 +13,11 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(express.static(path.join(__dirname, 'src/app/assets')));
 app.use(express.static(path.join(__dirname, 'static')));
 
 // IoT Platform Connectivity related info
 var basicConfig;
-
-console.log("ENV_VARS", process.env);
-console.log("ENV_VARS_END");
 
 function configureCredentials(config) {
 	basicConfig = config;
