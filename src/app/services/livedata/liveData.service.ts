@@ -14,8 +14,6 @@ export class LiveDataService {
     } else {
       this.url = `${wLocation.protocol}//${wLocation.hostname}`;
     }
-
-    console.info(this.url);
   }
   
   sendMessage(topic, message){

@@ -1,10 +1,10 @@
-const express      = require('express')
-      , path       = require('path')
-      , http       = require('http')
-      , bodyParser = require('body-parser')
-      , proxy      = require('http-proxy-middleware')
-      , Server     = require('socket.io')
-      , mqtt       = require('mqtt');
+const express         = require('express')
+      , path          = require('path')
+      , http          = require('http')
+      , bodyParser    = require('body-parser')
+      , proxy         = require('http-proxy-middleware')
+      , socketServer  = require('socket.io')
+      , mqtt          = require('mqtt');
 
 var io;
 
@@ -125,14 +125,13 @@ app.get('*', (req, res) => {
 
 const port = process.env.PORT || '3000';
 
-const server = http.createServer(app);
+const httpServer = http.createServer(app);
 
-server.listen(port, () => {
-
+httpServer.listen(port, () => {
   console.log(`APP running on localhost:${port}`);
 });
 
-io = Server(server);
+io = socketServer(httpServer);
 
 
 

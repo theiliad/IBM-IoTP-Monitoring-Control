@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
             <div class="floatLeft productTitle productTitleWide">
                 <a [routerLink]="['/']">
                 <img src="assets/img/iotp.png" class="floatLeft" style="width: 55px; margin-right: 15px; margin-top: -2px;">
-                IBM <strong>Watson IoT</strong> Platform
+                Plant Floor Monitor - <strong>Conveyor Status</strong>
                 </a>
             </div>
             

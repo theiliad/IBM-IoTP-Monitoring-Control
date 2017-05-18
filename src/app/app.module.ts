@@ -1,7 +1,7 @@
-import { BrowserModule }        from '@angular/platform-browser';
-import { NgModule }             from '@angular/core';
-import { FormsModule }          from '@angular/forms';
-import { HttpModule, JsonpModule } from '@angular/http';
+import { BrowserModule }                  from '@angular/platform-browser';
+import { NgModule, Pipe, PipeTransform }  from '@angular/core';
+import { FormsModule }                    from '@angular/forms';
+import { HttpModule, JsonpModule }        from '@angular/http';
 
 // Components
 import { AppComponent }         from './app.component';
@@ -16,7 +16,6 @@ import { LiveDataService }      from './services/livedata/liveData.service'
 
 // Routing
 import { routing }              from './app.routes';
-
 
 @NgModule({
   declarations: [
