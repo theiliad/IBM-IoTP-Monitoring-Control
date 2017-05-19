@@ -1,12 +1,311 @@
 webpackJsonp([1,4],{
 
-/***/ 194:
+/***/ 109:
+/***/ (function(module, exports) {
+
+function webpackEmptyContext(req) {
+	throw new Error("Cannot find module '" + req + "'.");
+}
+webpackEmptyContext.keys = function() { return []; };
+webpackEmptyContext.resolve = webpackEmptyContext;
+module.exports = webpackEmptyContext;
+webpackEmptyContext.id = 109;
+
+
+/***/ }),
+
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(288);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(560);
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(122);
+
+
+
+
+if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
+}
+__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 117:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_svgxuse__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_svgxuse___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_svgxuse__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var AppComponent = (function () {
+    function AppComponent() {
+    }
+    return AppComponent;
+}());
+AppComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+        selector: 'app-root',
+        template: __webpack_require__(197),
+        styles: [__webpack_require__(190)]
+    })
+], AppComponent);
+
+;
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 118:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_header_header_component__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_sidebar_sidebar_component__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_devices_devices_component__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_status_status_component__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_iotp_ibmIoTP_service__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_livedata_liveData_service__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_routes__ = __webpack_require__(119);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+// Components
+
+
+
+
+
+// Services
+
+
+// Routing
+
+var AppModule = (function () {
+    function AppModule() {
+    }
+    return AppModule;
+}());
+AppModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__components_header_header_component__["a" /* HeaderComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__components_sidebar_sidebar_component__["a" /* SidebarComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__components_devices_devices_component__["a" /* DevicesComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__components_status_status_component__["a" /* StatusComponent */]
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* JsonpModule */],
+            __WEBPACK_IMPORTED_MODULE_11__app_routes__["a" /* routing */]
+        ],
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_9__services_iotp_ibmIoTP_service__["a" /* IBMIoTPService */],
+            __WEBPACK_IMPORTED_MODULE_10__services_livedata_liveData_service__["a" /* LiveDataService */]
+        ],
+        bootstrap: [
+            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]
+        ]
+    })
+], AppModule);
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 119:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_devices_devices_component__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_status_status_component__ = __webpack_require__(72);
+/* unused harmony export routes */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routing; });
+
+
+
+var routes = [
+    { path: '', redirectTo: '/devices', pathMatch: 'full' },
+    { path: 'devices', component: __WEBPACK_IMPORTED_MODULE_1__components_devices_devices_component__["a" /* DevicesComponent */] },
+    { path: 'status', component: __WEBPACK_IMPORTED_MODULE_2__components_status_status_component__["a" /* StatusComponent */] }
+];
+var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* RouterModule */].forRoot(routes);
+//# sourceMappingURL=app.routes.js.map
+
+/***/ }),
+
+/***/ 120:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(4);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var HeaderComponent = (function () {
+    function HeaderComponent() {
+    }
+    return HeaderComponent;
+}());
+HeaderComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+        selector: 'header-component',
+        template: "\n    <header>\n        <div class=\"container noTopPadding\">\n            <div class=\"floatLeft productTitle productTitleWide\">\n                <a [routerLink]=\"['/']\">\n                <img src=\"assets/img/iotp.png\" class=\"floatLeft\" style=\"width: 30px; margin-right: 15px; margin-top: 9px;\">\n                Plant Floor Monitor - <strong>Conveyor Status</strong>\n                </a>\n            </div>\n            \n            <div class=\"floatRight\">\n                <p class=\"floatRight medium-show large-hide\">\n                    <a href=\"#\" class=\"btn btn-demo em-Modal-Call\" rel=\"loginModal\">\n                        <i class=\"icon-menu\"></i>\n                    </a>\n                </p>\n            </div>\n        </div>\n    </header>"
+    })
+], HeaderComponent);
+
+;
+//# sourceMappingURL=header.component.js.map
+
+/***/ }),
+
+/***/ 121:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(4);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SidebarComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var SidebarComponent = (function () {
+    function SidebarComponent() {
+        this.routes = [
+            { title: 'Devices', link: '/devices' },
+            { title: 'Status', link: '/status' }
+        ];
+    }
+    return SidebarComponent;
+}());
+SidebarComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+        selector: 'sidebar-component',
+        template: "\n    <aside class=\"sidebar\">\n        <ul class=\"sidebarItems\">\n            <li [routerLinkActive]=\"['active']\" *ngFor=\"let item of routes;\">\n                <a [routerLink]=\"[item.link]\">\n                    <i class=\"icon-location\"></i>{{item.title}}\n                </a>\n            </li>\n        </ul>\n    </aside>"
+    })
+], SidebarComponent);
+
+;
+//# sourceMappingURL=sidebar.component.js.map
+
+/***/ }),
+
+/***/ 122:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
+// The file contents for the current environment will overwrite these during build.
+// The build system defaults to the dev environment which uses `environment.ts`, but if you do
+// `ng build --env=prod` then `environment.prod.ts` will be used instead.
+// The list of which env maps to which file can be found in `.angular-cli.json`.
+// The file contents for the current environment will overwrite these during build.
+var environment = {
+    production: false
+};
+//# sourceMappingURL=environment.js.map
+
+/***/ }),
+
+/***/ 190:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(33)(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 197:
+/***/ (function(module, exports) {
+
+module.exports = "<header-component></header-component>\n\n<div class=\"content\">    \n    <div class=\"mainContent\">        \n        <!-- Router Outlet -->\n        <router-outlet></router-outlet>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ 198:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-50 noTopPadding container-30-right\">\n    <div class=\"floatLeft\">\n        <h4>Total Devices Registered</h4>\n\n        <span class=\"lightBlue\" style=\"font-size: 45px; font-weight: 700;\">\n            {{devices !== undefined ? devices.length : \"--\"}}\n        </span>\n    </div>\n</div>\n\n<div class=\"clearfix\"></div>\n\n<div *ngIf=\"this.devices !== undefined && this.devices.length > 0\" class=\"container-50 paddingTop\">\n      <div class=\"floatRight\">\n        <!--<a href=\"#\">Manage Devices</a>-->\n      </div>\n      \n      <div class=\"dashItem\" ng-if=\"$ctrl.regions\">\n        <div class=\"dashTitleBar\">\n            <h3>Live Data Connection {{mqttStatus ? '✅' : '❌'}}</h3>\n        </div>\n\n        <div class=\"bx--responsive-table-container\" style=\"width: 100%;\" data-responsive-table>\n            <table class=\"bx--responsive-table bx--responsive-table--static-size\" style=\"width: 100%;\" data-table>\n                <thead class=\"bx--table-head\">\n                    <tr class=\"bx--table-row\">\n                        <th class=\"bx--table-header\">\n                            <span>#</span>\n                        </th>\n\n                        <th class=\"bx--table-header bx--table-sort\" data-event=\"sort\">\n                            Device ID\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--down\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header bx--table-sort\" data-event=\"sort\">\n                            RPM\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--up\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header bx--table-sort\" data-event=\"sort\">\n                            Running\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--up\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header bx--table-sort\" data-event=\"sort\">\n                            Last Event\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--up\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header\">\n                            Auto Refresh\n                        </th>\n                    </tr>\n                </thead>\n\n                <tbody class=\"bx--table-body\">\n                    <tr class=\"bx--table-row bx--parent-row\" data-parent-row *ngFor=\"let device of devices; let i = index;\">\n                        <td>{{i + 1}}</td>\n                        <td>{{device.deviceId}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? device.data.rpm : \"--\"}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? device.data.running : \"--\"}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? (device.data.ts | date:'medium') : \"--\"}}</td>\n                        <td class=\"align-right\">\n                            <div class=\"bx--form-item bx--checkbox-wrapper\">\n                                <input id=\"bx--checkbox-{{i}}\" class=\"bx--checkbox\" type=\"checkbox\" value=\"red\" name=\"checkbox\"\n                                       [(ngModel)]=\"mqttStatus && liveData[i]\" [disabled]=\"!mqttStatus\"\n                                       (change)=\"setLiveData(i, $event.target.checked === true ? true : false);\">\n\n                                <label for=\"bx--checkbox-{{i}}\" class=\"bx--checkbox-label\">\n                                    <span class=\"bx--checkbox-appearance\">\n                                        <svg class=\"bx--checkbox-checkmark\">\n                                            <use xlink:href=\"/assets/img/carbon-icons.svg#icon--checkmark\"></use>\n                                        </svg>\n                                    </span>\n                                </label>\n                            </div>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n\n        <div class=\"bx--pagination\" data-pagination *ngIf=\"totalDevices > 10\">\n            <div class=\"bx--pagination__left\">\n                <div class=\"bx--select\">\n                <label for=\"select-id\" class=\"bx--visually-hidden\">Number of items per page</label>\n                <select id=\"select-id\" class=\"bx--select-input\" data-items-per-page>\n                    <option class=\"bx--select-option\" value=\"10\" selected>10</option>\n                    <option class=\"bx--select-option\" value=\"15\">15</option>\n                    <option class=\"bx--select-option\" value=\"20\">20</option>\n                    <option class=\"bx--select-option\" value=\"25\">25</option>\n                    <option class=\"bx--select-option\" value=\"30\">30</option>\n                </select>\n                <svg class=\"bx--select__arrow\">\n                    <use xlink:href=\"/carbon-icons/bluemix-icons.svg#icon--caret--down\"></use>\n                </svg>\n                </div>\n                <span class=\"bx--pagination__text\">Items per page&nbsp;&nbsp;|&nbsp;&nbsp;</span>\n                <span class=\"bx--pagination__text\"><span data-displayed-item-range>1-10</span> of <span data-total-items>40</span> items</span>\n            </div>\n            <div class=\"bx--pagination__right\">\n                <span class=\"bx--pagination__text\"><span data-displayed-page-number>1</span> of <span data-total-pages>4</span> pages</span>\n                <button class=\"bx--pagination__button bx--pagination__button--backward\" data-page-backward aria-label=\"Backward button\">\n                <svg class=\"bx--pagination__button-icon\">\n                    <use xlink:href=\"/carbon-icons/bluemix-icons.svg#icon--chevron--left\"></use>\n                </svg>\n                </button>\n                <label for=\"page-number-input\" class=\"bx--visually-hidden\">Page number input</label>\n                <input id=\"page-number-input\" type=\"text\" class=\"bx--text-input\" placeholder=\"0\" value=\"1\" data-page-number-input>\n                <button class=\"bx--pagination__button bx--pagination__button--forward\" data-page-forward aria-label=\"Forward button\">\n                <svg class=\"bx--pagination__button-icon\">\n                    <use xlink:href=\"/carbon-icons/bluemix-icons.svg#icon--chevron--right\"></use>\n                </svg>\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n\n<div class=\"container-50 paddingTop\">\n    <strong *ngIf=\"this.devices !== undefined && this.devices.length === 0\">\n        No Devices Found\n    </strong>\n\n    <strong *ngIf=\"this.devices === undefined && errorMessage === undefined\">\n        Loading Devices...\n    </strong>\n\n    <strong *ngIf=\"this.devices === undefined && errorMessage !== undefined\">\n        Something went wrong!\n    </strong>\n</div>"
+
+/***/ }),
+
+/***/ 199:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-50 noTopPadding container-30-right\">\n    <div class=\"floatLeft\">\n        <h4>Service Status</h4>\n    </div>\n</div>\n\n<div class=\"clearfix\"></div>\n\n<div *ngIf=\"iotpStatusKeys !== undefined && iotpStatusKeys.length > 0\" class=\"container-50 paddingTop\">\n    <p>Below are the statuses of the services you are using in your <strong>IoT Platform</strong> instance</p>\n\n    <ul class=\"list\" style=\"margin-top: 10px;\">\n      <li *ngFor=\"let key of iotpStatusKeys\">\n        <strong> {{cleanCamelCase(key)}}:</strong> {{iotpStatus[key] === 'green' ? '✅' : '❌'}}\n      </li>\n    </ul>\n</div>\n\n<div class=\"container-50 paddingTop\">\n    <strong *ngIf=\"iotpStatus === undefined && errorMessage === undefined\">\n        Loading...\n    </strong>\n\n    <strong *ngIf=\"iotpStatus === undefined && errorMessage !== undefined\">\n        Something went wrong!\n    </strong>\n</div>"
+
+/***/ }),
+
+/***/ 239:
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 240:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(110);
+
+
+/***/ }),
+
+/***/ 38:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IBMIoTPService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -69,13 +368,13 @@ var _a;
 
 /***/ }),
 
-/***/ 311:
+/***/ 71:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_iotp_ibmIoTP_service__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_livedata_liveData_service__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_iotp_ibmIoTP_service__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_livedata_liveData_service__ = __webpack_require__(73);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DevicesComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -166,8 +465,8 @@ var DevicesComponent = (function () {
     return DevicesComponent;
 }());
 DevicesComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        template: __webpack_require__(555),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+        template: __webpack_require__(198),
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_iotp_ibmIoTP_service__["a" /* IBMIoTPService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_iotp_ibmIoTP_service__["a" /* IBMIoTPService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_livedata_liveData_service__["a" /* LiveDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_livedata_liveData_service__["a" /* LiveDataService */]) === "function" && _b || Object])
 ], DevicesComponent);
@@ -178,12 +477,12 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 312:
+/***/ 72:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_iotp_ibmIoTP_service__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_iotp_ibmIoTP_service__ = __webpack_require__(38);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StatusComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -222,8 +521,8 @@ var StatusComponent = (function () {
     return StatusComponent;
 }());
 StatusComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        template: __webpack_require__(556),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+        template: __webpack_require__(199),
         styles: ["\n    .list {\n        line-height: 30px;\n    }\n  "]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_iotp_ibmIoTP_service__["a" /* IBMIoTPService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_iotp_ibmIoTP_service__["a" /* IBMIoTPService */]) === "function" && _a || Object])
@@ -235,13 +534,13 @@ var _a;
 
 /***/ }),
 
-/***/ 313:
+/***/ 73:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Observable__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Observable__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_socket_io_client__ = __webpack_require__(572);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_socket_io_client__ = __webpack_require__(230);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_socket_io_client__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LiveDataService; });
 
@@ -277,306 +576,7 @@ var LiveDataService = (function () {
 
 //# sourceMappingURL=liveData.service.js.map
 
-/***/ }),
-
-/***/ 355:
-/***/ (function(module, exports) {
-
-function webpackEmptyContext(req) {
-	throw new Error("Cannot find module '" + req + "'.");
-}
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 355;
-
-
-/***/ }),
-
-/***/ 356:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(443);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(475);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(479);
-
-
-
-
-if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
-}
-__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=main.js.map
-
-/***/ }),
-
-/***/ 474:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_svgxuse__ = __webpack_require__(576);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_svgxuse___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_svgxuse__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-var AppComponent = (function () {
-    function AppComponent() {
-    }
-    return AppComponent;
-}());
-AppComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'app-root',
-        template: __webpack_require__(554),
-        styles: [__webpack_require__(547)]
-    })
-], AppComponent);
-
-;
-//# sourceMappingURL=app.component.js.map
-
-/***/ }),
-
-/***/ 475:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(434);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(288);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(474);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_header_header_component__ = __webpack_require__(477);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_sidebar_sidebar_component__ = __webpack_require__(478);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_devices_devices_component__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_status_status_component__ = __webpack_require__(312);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_iotp_ibmIoTP_service__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_livedata_liveData_service__ = __webpack_require__(313);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_routes__ = __webpack_require__(476);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-// Components
-
-
-
-
-
-// Services
-
-
-// Routing
-
-var AppModule = (function () {
-    function AppModule() {
-    }
-    return AppModule;
-}());
-AppModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_5__components_header_header_component__["a" /* HeaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__components_sidebar_sidebar_component__["a" /* SidebarComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__components_devices_devices_component__["a" /* DevicesComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__components_status_status_component__["a" /* StatusComponent */]
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* JsonpModule */],
-            __WEBPACK_IMPORTED_MODULE_11__app_routes__["a" /* routing */]
-        ],
-        providers: [
-            __WEBPACK_IMPORTED_MODULE_9__services_iotp_ibmIoTP_service__["a" /* IBMIoTPService */],
-            __WEBPACK_IMPORTED_MODULE_10__services_livedata_liveData_service__["a" /* LiveDataService */]
-        ],
-        bootstrap: [
-            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]
-        ]
-    })
-], AppModule);
-
-//# sourceMappingURL=app.module.js.map
-
-/***/ }),
-
-/***/ 476:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__(463);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_devices_devices_component__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_status_status_component__ = __webpack_require__(312);
-/* unused harmony export routes */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routing; });
-
-
-
-var routes = [
-    { path: '', redirectTo: '/devices', pathMatch: 'full' },
-    { path: 'devices', component: __WEBPACK_IMPORTED_MODULE_1__components_devices_devices_component__["a" /* DevicesComponent */] },
-    { path: 'status', component: __WEBPACK_IMPORTED_MODULE_2__components_status_status_component__["a" /* StatusComponent */] }
-];
-var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* RouterModule */].forRoot(routes);
-//# sourceMappingURL=app.routes.js.map
-
-/***/ }),
-
-/***/ 477:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var HeaderComponent = (function () {
-    function HeaderComponent() {
-    }
-    return HeaderComponent;
-}());
-HeaderComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'header-component',
-        template: "\n    <header>\n        <div class=\"container noTopPadding\">\n            <div class=\"floatLeft productTitle productTitleWide\">\n                <a [routerLink]=\"['/']\">\n                <img src=\"assets/img/iotp.png\" class=\"floatLeft\" style=\"width: 30px; margin-right: 15px; margin-top: 9px;\">\n                Plant Floor Monitor - <strong>Conveyor Status</strong>\n                </a>\n            </div>\n            \n            <div class=\"floatRight\">\n                <p class=\"floatRight medium-show large-hide\">\n                    <a href=\"#\" class=\"btn btn-demo em-Modal-Call\" rel=\"loginModal\">\n                        <i class=\"icon-menu\"></i>\n                    </a>\n                </p>\n            </div>\n        </div>\n    </header>"
-    })
-], HeaderComponent);
-
-;
-//# sourceMappingURL=header.component.js.map
-
-/***/ }),
-
-/***/ 478:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SidebarComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var SidebarComponent = (function () {
-    function SidebarComponent() {
-        this.routes = [
-            { title: 'Devices', link: '/devices' },
-            { title: 'Status', link: '/status' }
-        ];
-    }
-    return SidebarComponent;
-}());
-SidebarComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'sidebar-component',
-        template: "\n    <aside class=\"sidebar\">\n        <ul class=\"sidebarItems\">\n            <li [routerLinkActive]=\"['active']\" *ngFor=\"let item of routes;\">\n                <a [routerLink]=\"[item.link]\">\n                    <i class=\"icon-location\"></i>{{item.title}}\n                </a>\n            </li>\n        </ul>\n    </aside>"
-    })
-], SidebarComponent);
-
-;
-//# sourceMappingURL=sidebar.component.js.map
-
-/***/ }),
-
-/***/ 479:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `.angular-cli.json`.
-// The file contents for the current environment will overwrite these during build.
-var environment = {
-    production: false
-};
-//# sourceMappingURL=environment.js.map
-
-/***/ }),
-
-/***/ 547:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(137)();
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ 554:
-/***/ (function(module, exports) {
-
-module.exports = "<header-component></header-component>\n\n<div class=\"content\">    \n    <div class=\"mainContent\">        \n        <!-- Router Outlet -->\n        <router-outlet></router-outlet>\n    </div>\n</div>"
-
-/***/ }),
-
-/***/ 555:
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container-50 noTopPadding container-30-right\">\n    <div class=\"floatLeft\">\n        <h4>Total Devices Registered</h4>\n\n        <span class=\"lightBlue\" style=\"font-size: 45px; font-weight: 700;\">\n            {{devices !== undefined ? devices.length : \"--\"}}\n        </span>\n    </div>\n</div>\n\n<div class=\"clearfix\"></div>\n\n<div *ngIf=\"this.devices !== undefined && this.devices.length > 0\" class=\"container-50 paddingTop\">\n      <div class=\"floatRight\">\n        <!--<a href=\"#\">Manage Devices</a>-->\n      </div>\n      \n      <div class=\"dashItem\" ng-if=\"$ctrl.regions\">\n        <div class=\"dashTitleBar\">\n            <h3>Live Data Connection {{mqttStatus ? '✅' : '❌'}}</h3>\n        </div>\n\n        <div class=\"bx--responsive-table-container\" style=\"width: 100%;\" data-responsive-table>\n            <table class=\"bx--responsive-table bx--responsive-table--static-size\" style=\"width: 100%;\" data-table>\n                <thead class=\"bx--table-head\">\n                    <tr class=\"bx--table-row\">\n                        <th class=\"bx--table-header\">\n                            <span>#</span>\n                        </th>\n\n                        <th class=\"bx--table-header bx--table-sort\" data-event=\"sort\">\n                            Device ID\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--down\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header bx--table-sort\" data-event=\"sort\">\n                            RPM\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--up\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header bx--table-sort\" data-event=\"sort\">\n                            Running\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--up\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header bx--table-sort\" data-event=\"sort\">\n                            Last Event\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--up\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header\">\n                            Auto Refresh\n                        </th>\n                    </tr>\n                </thead>\n\n                <tbody class=\"bx--table-body\">\n                    <tr class=\"bx--table-row bx--parent-row\" data-parent-row *ngFor=\"let device of devices; let i = index;\">\n                        <td>{{i + 1}}</td>\n                        <td>{{device.deviceId}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? device.data.rpm : \"--\"}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? device.data.running : \"--\"}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? (device.data.ts | date:'medium') : \"--\"}}</td>\n                        <td class=\"align-right\">\n                            <div class=\"bx--form-item bx--checkbox-wrapper\">\n                                <input id=\"bx--checkbox-{{i}}\" class=\"bx--checkbox\" type=\"checkbox\" value=\"red\" name=\"checkbox\"\n                                       [(ngModel)]=\"mqttStatus && liveData[i]\" [disabled]=\"!mqttStatus\"\n                                       (change)=\"setLiveData(i, $event.target.checked === true ? true : false);\">\n\n                                <label for=\"bx--checkbox-{{i}}\" class=\"bx--checkbox-label\">\n                                    <span class=\"bx--checkbox-appearance\">\n                                        <svg class=\"bx--checkbox-checkmark\">\n                                            <use xlink:href=\"/assets/img/carbon-icons.svg#icon--checkmark\"></use>\n                                        </svg>\n                                    </span>\n                                </label>\n                            </div>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n\n        <div class=\"bx--pagination\" data-pagination *ngIf=\"totalDevices > 10\">\n            <div class=\"bx--pagination__left\">\n                <div class=\"bx--select\">\n                <label for=\"select-id\" class=\"bx--visually-hidden\">Number of items per page</label>\n                <select id=\"select-id\" class=\"bx--select-input\" data-items-per-page>\n                    <option class=\"bx--select-option\" value=\"10\" selected>10</option>\n                    <option class=\"bx--select-option\" value=\"15\">15</option>\n                    <option class=\"bx--select-option\" value=\"20\">20</option>\n                    <option class=\"bx--select-option\" value=\"25\">25</option>\n                    <option class=\"bx--select-option\" value=\"30\">30</option>\n                </select>\n                <svg class=\"bx--select__arrow\">\n                    <use xlink:href=\"/carbon-icons/bluemix-icons.svg#icon--caret--down\"></use>\n                </svg>\n                </div>\n                <span class=\"bx--pagination__text\">Items per page&nbsp;&nbsp;|&nbsp;&nbsp;</span>\n                <span class=\"bx--pagination__text\"><span data-displayed-item-range>1-10</span> of <span data-total-items>40</span> items</span>\n            </div>\n            <div class=\"bx--pagination__right\">\n                <span class=\"bx--pagination__text\"><span data-displayed-page-number>1</span> of <span data-total-pages>4</span> pages</span>\n                <button class=\"bx--pagination__button bx--pagination__button--backward\" data-page-backward aria-label=\"Backward button\">\n                <svg class=\"bx--pagination__button-icon\">\n                    <use xlink:href=\"/carbon-icons/bluemix-icons.svg#icon--chevron--left\"></use>\n                </svg>\n                </button>\n                <label for=\"page-number-input\" class=\"bx--visually-hidden\">Page number input</label>\n                <input id=\"page-number-input\" type=\"text\" class=\"bx--text-input\" placeholder=\"0\" value=\"1\" data-page-number-input>\n                <button class=\"bx--pagination__button bx--pagination__button--forward\" data-page-forward aria-label=\"Forward button\">\n                <svg class=\"bx--pagination__button-icon\">\n                    <use xlink:href=\"/carbon-icons/bluemix-icons.svg#icon--chevron--right\"></use>\n                </svg>\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n\n<div class=\"container-50 paddingTop\">\n    <strong *ngIf=\"this.devices !== undefined && this.devices.length === 0\">\n        No Devices Found\n    </strong>\n\n    <strong *ngIf=\"this.devices === undefined && errorMessage === undefined\">\n        Loading Devices...\n    </strong>\n\n    <strong *ngIf=\"this.devices === undefined && errorMessage !== undefined\">\n        Something went wrong!\n    </strong>\n</div>"
-
-/***/ }),
-
-/***/ 556:
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container-50 noTopPadding container-30-right\">\n    <div class=\"floatLeft\">\n        <h4>Service Status</h4>\n    </div>\n</div>\n\n<div class=\"clearfix\"></div>\n\n<div *ngIf=\"iotpStatusKeys !== undefined && iotpStatusKeys.length > 0\" class=\"container-50 paddingTop\">\n    <p>Below are the statuses of the services you are using in your <strong>IoT Platform</strong> instance</p>\n\n    <ul class=\"list\" style=\"margin-top: 10px;\">\n      <li *ngFor=\"let key of iotpStatusKeys\">\n        <strong> {{cleanCamelCase(key)}}:</strong> {{iotpStatus[key] === 'green' ? '✅' : '❌'}}\n      </li>\n    </ul>\n</div>\n\n<div class=\"container-50 paddingTop\">\n    <strong *ngIf=\"iotpStatus === undefined && errorMessage === undefined\">\n        Loading...\n    </strong>\n\n    <strong *ngIf=\"iotpStatus === undefined && errorMessage !== undefined\">\n        Something went wrong!\n    </strong>\n</div>"
-
-/***/ }),
-
-/***/ 581:
-/***/ (function(module, exports) {
-
-/* (ignored) */
-
-/***/ }),
-
-/***/ 582:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(356);
-
-
 /***/ })
 
-},[582]);
+},[240]);
 //# sourceMappingURL=main.bundle.js.map
