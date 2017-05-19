@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ng":         "ng",
-    "start":      "node app.js",
-    "build":      "ng build",
-    "build-run":  "ng build && node app.js",
-    "test":       "ng test",
-    "lint":       "ng lint",
-    "e2e":        "ng e2e",
-    "push":       "ng build -prod && cf push"
+    "ng": "ng",
+    "start": "node app.js",
+    "build": "ng build",
+    "build-run": "ng build && node app.js",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "push": "ng build -prod && cf push"
   },
   "private": true,
   "engines": {
@@ -18,10 +18,9 @@
     "npm": "4.x.x"
   },
   "dependencies": {
-
     "@angular/common": "^2.4.0",
     "@angular/compiler": "^2.4.0",
-    "@angular/compiler-cli":"^2.4.0",
+    "@angular/compiler-cli": "^2.4.0",
     "@angular/core": "^2.4.0",
     "@angular/forms": "^2.4.0",
     "@angular/http": "^2.4.0",
@@ -55,9 +54,10 @@
     "karma": "~1.4.1",
     "karma-chrome-launcher": "~2.0.0",
     "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "karma-coverage-istanbul-reporter": "^0.2.0",
+    "node-sass": "^4.5.3",
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.4.2",
