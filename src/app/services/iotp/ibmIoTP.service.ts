@@ -21,8 +21,9 @@ export class IBMIoTPService {
         const url = this.baseURL.concat(this.devicesURL);
 
         const params: URLSearchParams = new URLSearchParams();
-        params.set('_limit', requestParams ? requestParams.limit   : '10');
-        params.set('_sort',  requestParams ? requestParams.orderBy : 'deviceId');
+        params.set('_limit',    requestParams ? requestParams.limit    : '10');
+        params.set('_sort',     requestParams ? requestParams.orderBy  : 'deviceId');
+        params.set('_bookmark', requestParams ? requestParams.bookmark : '');
         
         return this.http.get(url, {params: params})
                 .toPromise()

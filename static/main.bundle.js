@@ -273,7 +273,7 @@ module.exports = "<header-component></header-component>\n\n<div class=\"content\
 /***/ 198:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-50 noTopPadding container-30-right\">\n    <div class=\"floatLeft\">\n        <h4>Total Devices Registered</h4>\n\n        <span class=\"lightBlue\" style=\"font-size: 45px; font-weight: 700;\">\n            {{devices !== undefined ? devices.length : \"--\"}}\n        </span>\n    </div>\n</div>\n\n<div class=\"clearfix\"></div>\n\n<div *ngIf=\"this.devices !== undefined && this.devices.length > 0\" class=\"container-50 paddingTop\">\n      <div class=\"floatRight\">\n        <!--<a href=\"#\">Manage Devices</a>-->\n      </div>\n      \n      <div class=\"dashItem\" ng-if=\"$ctrl.regions\">\n        <div class=\"dashTitleBar\">\n            <h3>Live Data Connection {{mqttStatus ? '✅' : '❌'}}</h3>\n        </div>\n\n        <div class=\"bx--responsive-table-container\" style=\"width: 100%;\" data-responsive-table>\n            <table class=\"bx--responsive-table bx--responsive-table--static-size\" style=\"width: 100%;\" data-table>\n                <thead class=\"bx--table-head\">\n                    <tr class=\"bx--table-row\">\n                        <th class=\"bx--table-header\">\n                            <span>#</span>\n                        </th>\n\n                        <th class=\"bx--table-header bx--table-sort\" data-event=\"sort\">\n                            Device ID\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--down\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header bx--table-sort\" data-event=\"sort\">\n                            RPM\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--up\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header bx--table-sort\" data-event=\"sort\">\n                            Running\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--up\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header bx--table-sort\" data-event=\"sort\">\n                            Last Event\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--up\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header\">\n                            Auto Refresh\n                        </th>\n                    </tr>\n                </thead>\n\n                <tbody class=\"bx--table-body\">\n                    <tr class=\"bx--table-row bx--parent-row\" data-parent-row *ngFor=\"let device of devices; let i = index;\">\n                        <td>{{i + 1}}</td>\n                        <td>{{device.deviceId}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? device.data.rpm : \"--\"}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? device.data.running : \"--\"}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? (device.data.ts | date:'medium') : \"--\"}}</td>\n                        <td class=\"align-right\">\n                            <div class=\"bx--form-item bx--checkbox-wrapper\">\n                                <input id=\"bx--checkbox-{{i}}\" class=\"bx--checkbox\" type=\"checkbox\" value=\"red\" name=\"checkbox\"\n                                       [(ngModel)]=\"mqttStatus && liveData[i]\" [disabled]=\"!mqttStatus\"\n                                       (change)=\"setLiveData(i, $event.target.checked === true ? true : false);\">\n\n                                <label for=\"bx--checkbox-{{i}}\" class=\"bx--checkbox-label\">\n                                    <span class=\"bx--checkbox-appearance\">\n                                        <svg class=\"bx--checkbox-checkmark\">\n                                            <use xlink:href=\"/assets/img/carbon-icons.svg#icon--checkmark\"></use>\n                                        </svg>\n                                    </span>\n                                </label>\n                            </div>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n\n        <div class=\"bx--pagination\" data-pagination *ngIf=\"totalDevices > 10\">\n            <div class=\"bx--pagination__left\">\n                <div class=\"bx--select\">\n                <label for=\"select-id\" class=\"bx--visually-hidden\">Number of items per page</label>\n                <select id=\"select-id\" class=\"bx--select-input\" data-items-per-page>\n                    <option class=\"bx--select-option\" value=\"10\" selected>10</option>\n                    <option class=\"bx--select-option\" value=\"15\">15</option>\n                    <option class=\"bx--select-option\" value=\"20\">20</option>\n                    <option class=\"bx--select-option\" value=\"25\">25</option>\n                    <option class=\"bx--select-option\" value=\"30\">30</option>\n                </select>\n                <svg class=\"bx--select__arrow\">\n                    <use xlink:href=\"/carbon-icons/bluemix-icons.svg#icon--caret--down\"></use>\n                </svg>\n                </div>\n                <span class=\"bx--pagination__text\">Items per page&nbsp;&nbsp;|&nbsp;&nbsp;</span>\n                <span class=\"bx--pagination__text\"><span data-displayed-item-range>1-10</span> of <span data-total-items>40</span> items</span>\n            </div>\n            <div class=\"bx--pagination__right\">\n                <span class=\"bx--pagination__text\"><span data-displayed-page-number>1</span> of <span data-total-pages>4</span> pages</span>\n                <button class=\"bx--pagination__button bx--pagination__button--backward\" data-page-backward aria-label=\"Backward button\">\n                <svg class=\"bx--pagination__button-icon\">\n                    <use xlink:href=\"/carbon-icons/bluemix-icons.svg#icon--chevron--left\"></use>\n                </svg>\n                </button>\n                <label for=\"page-number-input\" class=\"bx--visually-hidden\">Page number input</label>\n                <input id=\"page-number-input\" type=\"text\" class=\"bx--text-input\" placeholder=\"0\" value=\"1\" data-page-number-input>\n                <button class=\"bx--pagination__button bx--pagination__button--forward\" data-page-forward aria-label=\"Forward button\">\n                <svg class=\"bx--pagination__button-icon\">\n                    <use xlink:href=\"/carbon-icons/bluemix-icons.svg#icon--chevron--right\"></use>\n                </svg>\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n\n<div class=\"container-50 paddingTop\">\n    <strong *ngIf=\"this.devices !== undefined && this.devices.length === 0\">\n        No Devices Found\n    </strong>\n\n    <strong *ngIf=\"this.devices === undefined && errorMessage === undefined\">\n        Loading Devices...\n    </strong>\n\n    <strong *ngIf=\"this.devices === undefined && errorMessage !== undefined\">\n        Something went wrong!\n    </strong>\n</div>"
+module.exports = "<div class=\"container-50 noTopPadding container-30-right\">\n    <div class=\"floatLeft\">\n        <h4>Total Devices Registered</h4>\n\n        <span class=\"lightBlue\" style=\"font-size: 45px; font-weight: 700;\">\n            {{totalDevices || \"--\"}}\n        </span>\n    </div>\n</div>\n\n<div class=\"clearfix\"></div>\n\n<div *ngIf=\"this.devices !== undefined && this.devices.length > 0\" class=\"container-50 paddingTop\">\n      <div class=\"floatRight\">\n        <!--<a href=\"#\">Manage Devices</a>-->\n      </div>\n      \n      <div class=\"dashItem\" ng-if=\"$ctrl.regions\">\n        <div class=\"dashTitleBar\">\n            <h3>Live Data Connection {{mqttStatus ? '✅' : '❌'}}</h3>\n        </div>\n\n        <div class=\"bx--responsive-table-container\" style=\"width: 100%;\" data-responsive-table>\n            <table class=\"bx--responsive-table bx--responsive-table--static-size\" style=\"width: 100%;\" data-table>\n                <thead class=\"bx--table-head\">\n                    <tr class=\"bx--table-row\">\n                        <th class=\"bx--table-header\">\n                            <span>#</span>\n                        </th>\n\n                        <th class=\"bx--table-header\" (click)=\"revertSort();\">\n                            Device ID\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use *ngIf=\"orderBy[0] === '-'\" xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--down\"></use>\n\n                                <use *ngIf=\"orderBy[0] !== '-'\" xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--up\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header\">\n                            RPM\n                        </th>\n                        \n                        <th class=\"bx--table-header\">\n                            Running\n                        </th>\n                        \n                        <th class=\"bx--table-header\">\n                            Last Event\n                        </th>\n                        \n                        <th class=\"bx--table-header\">\n                            Auto Refresh\n                        </th>\n                    </tr>\n                </thead>\n\n                <tbody class=\"bx--table-body\">\n                    <tr class=\"bx--table-row bx--parent-row\" data-parent-row *ngFor=\"let device of devices; let i = index;\">\n                        <td>{{(currentPage-1)*limit+(i + 1)}}</td>\n                        <td>{{device.deviceId}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? device.data.rpm : \"--\"}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? device.data.running : \"--\"}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? (device.data.ts | date:'medium') : \"--\"}}</td>\n                        <td class=\"align-right\">\n                            <div class=\"bx--form-item bx--checkbox-wrapper\">\n                                <input id=\"bx--checkbox-{{i}}\" class=\"bx--checkbox\" type=\"checkbox\" value=\"red\" name=\"checkbox\"\n                                       [(ngModel)]=\"mqttStatus && liveData[(currentPage-1)*limit+i]\" [disabled]=\"!mqttStatus\"\n                                       (change)=\"setLiveData(i, $event.target.checked === true ? true : false);\">\n\n                                <label for=\"bx--checkbox-{{i}}\" class=\"bx--checkbox-label\">\n                                    <span class=\"bx--checkbox-appearance\">\n                                        <svg class=\"bx--checkbox-checkmark\">\n                                            <use xlink:href=\"/assets/img/carbon-icons.svg#icon--checkmark\"></use>\n                                        </svg>\n                                    </span>\n                                </label>\n                            </div>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n\n        <div class=\"bx--pagination\" data-pagination *ngIf=\"totalDevices > 10\">\n            <div class=\"bx--pagination__left\">\n                <div class=\"bx--select\">\n                <label for=\"select-id\" class=\"bx--visually-hidden\">Number of items per page</label>\n                <select id=\"select-id\" class=\"bx--select-input\" [(ngModel)]=\"limit\" (change)=\"getDevices();\" data-items-per-page>\n                    <option class=\"bx--select-option\" value=\"10\" selected>10</option>\n                    <option class=\"bx--select-option\" value=\"20\">20</option>\n                    <option class=\"bx--select-option\" value=\"30\">30</option>\n                    <option class=\"bx--select-option\" value=\"40\">40</option>\n                    <option class=\"bx--select-option\" value=\"50\">50</option>\n                </select>\n                <svg class=\"bx--select__arrow\">\n                    <use xlink:href=\"/carbon-icons/bluemix-icons.svg#icon--caret--down\"></use>\n                </svg>\n                </div>\n                <span class=\"bx--pagination__text\">Items per page&nbsp;&nbsp;|&nbsp;&nbsp;</span>\n                <span class=\"bx--pagination__text\"><span data-displayed-item-range>{{(currentPage-1)*limit+1}}-{{currentPage === totalPages ? totalDevices : sum(limit, (currentPage-1)*limit)}}</span> of <span data-total-items>{{totalDevices}}</span> items</span>\n            </div>\n            <div class=\"bx--pagination__right\">\n                <span class=\"bx--pagination__text\">\n                    <span data-displayed-page-number>{{currentPage}}</span> of <span data-total-pages>{{totalPages}}</span> {{totalPages > 1 ? 'pages' : 'page'}}\n                </span>\n                \n                <button class=\"bx--pagination__button bx--pagination__button--backward\" data-page-backward aria-label=\"Backward button\"\n                        (click)=\"prevPage();\" [disabled]=\"currentPage === 1\">\n                    <svg class=\"bx--pagination__button-icon\">\n                        <use xlink:href=\"/carbon-icons/bluemix-icons.svg#icon--chevron--left\"></use>\n                    </svg>\n                </button>\n                \n                <label for=\"page-number-input\" class=\"bx--visually-hidden\">Page number input</label>\n                <input id=\"page-number-input\" type=\"text\" class=\"bx--text-input\" placeholder=\"0\" [value]=\"currentPage\" disabled data-page-number-input>\n                \n                <button class=\"bx--pagination__button bx--pagination__button--forward\" data-page-forward aria-label=\"Forward button\"\n                        (click)=\"nextPage();\" [disabled]=\"limit >= totalDevices || currentPage === totalPages\">\n                    <svg class=\"bx--pagination__button-icon\">\n                        <use xlink:href=\"/carbon-icons/bluemix-icons.svg#icon--chevron--right\"></use>\n                    </svg>\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n\n<div class=\"container-50 paddingTop\">\n    <strong *ngIf=\"this.devices !== undefined && this.devices.length === 0\">\n        No Devices Found\n    </strong>\n\n    <strong *ngIf=\"this.devices === undefined && errorMessage === undefined\">\n        Loading Devices...\n    </strong>\n\n    <strong *ngIf=\"this.devices === undefined && errorMessage !== undefined\">\n        Something went wrong!\n    </strong>\n</div>"
 
 /***/ }),
 
@@ -336,6 +336,7 @@ var IBMIoTPService = (function () {
         var params = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* URLSearchParams */]();
         params.set('_limit', requestParams ? requestParams.limit : '10');
         params.set('_sort', requestParams ? requestParams.orderBy : 'deviceId');
+        params.set('_bookmark', requestParams ? requestParams.bookmark : '');
         return this.http.get(url, { params: params })
             .toPromise()
             .then(function (response) { return response.json(); })
@@ -395,10 +396,15 @@ var DevicesComponent = (function () {
     function DevicesComponent(ibmIoTP, liveDataService) {
         this.ibmIoTP = ibmIoTP;
         this.liveDataService = liveDataService;
+        this.bookmarks = {};
+        this.limit = 10;
+        this.orderBy = "deviceId";
+        this.currentPage = 1;
+        this.totalPages = 0;
         this.liveData = {};
         this.messages = [];
         this.mqttStatus = false;
-        this.math = Math;
+        this.liveDataSubscribedOnInit = false;
     }
     DevicesComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -420,17 +426,40 @@ var DevicesComponent = (function () {
             }
             _this.mqttStatusInquiry();
         });
-        this.ibmIoTP.getDevices().then(function (devices) {
+        this.getDevices();
+    };
+    DevicesComponent.prototype.getDevices = function (bookmark, pagination) {
+        var _this = this;
+        var params = {
+            bookmark: bookmark,
+            limit: this.limit.toString(),
+            orderBy: this.orderBy
+        };
+        this.ibmIoTP.getDevices(params).then(function (devices) {
             console.log("Devices:", devices);
+            if (pagination) {
+                if (pagination === "next")
+                    _this.currentPage = _this.currentPage + 1;
+                else if (pagination === "prev")
+                    _this.currentPage = _this.currentPage - 1;
+            }
+            else {
+                _this.currentPage = 1;
+            }
             _this.devices = devices["results"];
             _this.totalDevices = devices["meta"].total_rows;
+            _this.totalPages = Math.ceil(_this.totalDevices / _this.limit);
+            _this.bookmark = devices["bookmark"];
+            _this.bookmarks[_this.currentPage] = devices["bookmark"];
+            // Get last cached event for all devices loaded
             var index = 0;
             var _loop_1 = function (device) {
                 _this.ibmIoTP.getLastCachedEvent(device.deviceId).then(function (eventData) {
                     console.log("Event:", atob(eventData["payload"]));
                     device["data"] = JSON.parse(atob(eventData["payload"]))["d"];
                 }, function (error) { return _this.errorMessage = error; });
-                if (index < 5) {
+                // Only runs this code when the page is loading for the first time
+                if (!_this.liveDataSubscribedOnInit && index < 5) {
                     _this.setLiveData(index, true);
                     index += 1;
                 }
@@ -439,7 +468,21 @@ var DevicesComponent = (function () {
                 var device = _a[_i];
                 _loop_1(device);
             }
+            _this.liveDataSubscribedOnInit = true;
         }, function (error) { return _this.errorMessage = error; });
+    };
+    DevicesComponent.prototype.revertSort = function () {
+        this.orderBy = (this.orderBy.charAt(0) !== '-') ? ("-" + this.orderBy) : (this.orderBy.substring(1));
+        this.getDevices();
+    };
+    DevicesComponent.prototype.sum = function (a, b) {
+        return parseInt(a) + parseInt(b);
+    };
+    DevicesComponent.prototype.nextPage = function () {
+        this.getDevices(this.bookmark, "next");
+    };
+    DevicesComponent.prototype.prevPage = function () {
+        this.getDevices(this.bookmarks[this.currentPage - 2], "prev");
     };
     DevicesComponent.prototype.sendMessage = function () {
         this.liveDataService.sendMessage('new-data', this.message);
@@ -470,6 +513,7 @@ var DevicesComponent = (function () {
 DevicesComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
         template: __webpack_require__(198),
+        styles: ["\n    button[disabled] {\n      opacity: 0.5;\n      cursor:  not-allowed;\n    }\n\n    input[type=\"text\"][disabled] {\n      cursor: auto;\n    }\n  "]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_iotp_ibmIoTP_service__["a" /* IBMIoTPService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_iotp_ibmIoTP_service__["a" /* IBMIoTPService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_livedata_liveData_service__["a" /* LiveDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_livedata_liveData_service__["a" /* LiveDataService */]) === "function" && _b || Object])
 ], DevicesComponent);
