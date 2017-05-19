@@ -14,6 +14,7 @@ export class DevicesComponent implements OnInit {
   // Devices List
   errorMessage: string;
   devices;
+  totalDevices: number;
   
   // Live Data
   connection;
@@ -22,7 +23,11 @@ export class DevicesComponent implements OnInit {
   message;
   mqttStatus: boolean = false;
 
-  constructor (private ibmIoTP: IBMIoTPService, private liveDataService: LiveDataService) {}
+  math: any;
+
+  constructor (private ibmIoTP: IBMIoTPService, private liveDataService: LiveDataService) {
+    this.math = Math;
+  }
 
   ngOnInit() {
     this.connection = this.liveDataService.getMessages().subscribe(message => {
@@ -50,7 +55,8 @@ export class DevicesComponent implements OnInit {
           devices => {
             console.log("Devices:", devices);
 
-            this.devices = devices["results"];
+            this.devices      = devices["results"];
+            this.totalDevices = devices["meta"].total_rows;
 
             var index = 0;
             for (let device of this.devices) {

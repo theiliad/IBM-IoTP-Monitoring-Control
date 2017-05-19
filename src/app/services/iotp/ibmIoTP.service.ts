@@ -18,7 +18,7 @@ export class IBMIoTPService {
     constructor(private http: Http) {}
 
     getDevices(): Promise<Object> {
-        let url = this.baseURL.concat(this.devicesURL);
+        const url = this.baseURL.concat(this.devicesURL) + "?_limit=10";
 
         return this.http.get(url)
                 .toPromise()
