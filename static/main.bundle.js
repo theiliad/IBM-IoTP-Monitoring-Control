@@ -358,8 +358,7 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_status_status_component__ = __webpack_require__(312);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_iotp_ibmIoTP_service__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_livedata_liveData_service__ = __webpack_require__(313);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pipes_orderby_pipe__ = __webpack_require__(584);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_routes__ = __webpack_require__(476);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_routes__ = __webpack_require__(476);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -380,8 +379,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 // Services
 
 
-// Pipes
-
 // Routing
 
 var AppModule = (function () {
@@ -396,16 +393,14 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_5__components_header_header_component__["a" /* HeaderComponent */],
             __WEBPACK_IMPORTED_MODULE_6__components_sidebar_sidebar_component__["a" /* SidebarComponent */],
             __WEBPACK_IMPORTED_MODULE_7__components_devices_devices_component__["a" /* DevicesComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__components_status_status_component__["a" /* StatusComponent */],
-            // Pipes
-            __WEBPACK_IMPORTED_MODULE_11__pipes_orderby_pipe__["a" /* OrderBy */]
+            __WEBPACK_IMPORTED_MODULE_8__components_status_status_component__["a" /* StatusComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* JsonpModule */],
-            __WEBPACK_IMPORTED_MODULE_12__app_routes__["a" /* routing */]
+            __WEBPACK_IMPORTED_MODULE_11__app_routes__["a" /* routing */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_9__services_iotp_ibmIoTP_service__["a" /* IBMIoTPService */],
@@ -575,63 +570,6 @@ module.exports = "<div class=\"container-50 noTopPadding container-30-right\">\n
 
 module.exports = __webpack_require__(356);
 
-
-/***/ }),
-
-/***/ 584:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrderBy; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var OrderBy = (function () {
-    function OrderBy() {
-    }
-    OrderBy.prototype.transform = function (obj, field) {
-        // Ascending order
-        var orderASC = true;
-        if (field[0] === '-') {
-            field = field.substring(1);
-            orderASC = false;
-        }
-        obj.sort(function (a, b) {
-            var aField = a[field], bField = b[field];
-            if (isNaN(aField))
-                aField.toLowerCase();
-            if (isNaN(bField))
-                bField.toLowerCase();
-            // If order is ascending
-            if (orderASC) {
-                if (aField < bField)
-                    return -1;
-                if (aField > bField)
-                    return 1;
-                return 0;
-            }
-            else {
-                if (aField < bField)
-                    return 1;
-                if (aField > bField)
-                    return -1;
-                return 0;
-            }
-        });
-        return obj;
-    };
-    return OrderBy;
-}());
-OrderBy = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* Pipe */])({ name: 'orderBy' })
-], OrderBy);
-
-//# sourceMappingURL=orderby.pipe.js.map
 
 /***/ })
 
