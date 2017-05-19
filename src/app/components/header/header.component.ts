@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
         <div class="container noTopPadding">
             <div class="floatLeft productTitle productTitleWide">
                 <a [routerLink]="['/']">
-                <img src="assets/img/iotp.png" class="floatLeft" style="width: 55px; margin-right: 15px; margin-top: -2px;">
+                <img src="assets/img/iotp.png" class="floatLeft" style="width: 30px; margin-right: 15px; margin-top: 9px;">
                 Plant Floor Monitor - <strong>Conveyor Status</strong>
                 </a>
             </div>

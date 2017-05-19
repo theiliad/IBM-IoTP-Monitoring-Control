@@ -14,6 +14,9 @@ import { StatusComponent }      from './components/status/status.component';
 import { IBMIoTPService }       from './services/iotp/ibmIoTP.service'
 import { LiveDataService }      from './services/livedata/liveData.service'
 
+// Pipes
+import { OrderBy }              from './pipes/orderby.pipe';
+
 // Routing
 import { routing }              from './app.routes';
 
@@ -23,7 +26,10 @@ import { routing }              from './app.routes';
     HeaderComponent,
     SidebarComponent,
     DevicesComponent,
-    StatusComponent
+    StatusComponent,
+
+    // Pipes
+    OrderBy
   ],
   imports: [
     BrowserModule,

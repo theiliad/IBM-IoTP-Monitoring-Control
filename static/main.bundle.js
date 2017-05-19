@@ -358,7 +358,8 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_status_status_component__ = __webpack_require__(312);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_iotp_ibmIoTP_service__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_livedata_liveData_service__ = __webpack_require__(313);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_routes__ = __webpack_require__(476);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pipes_orderby_pipe__ = __webpack_require__(584);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_routes__ = __webpack_require__(476);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -379,6 +380,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 // Services
 
 
+// Pipes
+
 // Routing
 
 var AppModule = (function () {
@@ -393,14 +396,16 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_5__components_header_header_component__["a" /* HeaderComponent */],
             __WEBPACK_IMPORTED_MODULE_6__components_sidebar_sidebar_component__["a" /* SidebarComponent */],
             __WEBPACK_IMPORTED_MODULE_7__components_devices_devices_component__["a" /* DevicesComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__components_status_status_component__["a" /* StatusComponent */]
+            __WEBPACK_IMPORTED_MODULE_8__components_status_status_component__["a" /* StatusComponent */],
+            // Pipes
+            __WEBPACK_IMPORTED_MODULE_11__pipes_orderby_pipe__["a" /* OrderBy */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* JsonpModule */],
-            __WEBPACK_IMPORTED_MODULE_11__app_routes__["a" /* routing */]
+            __WEBPACK_IMPORTED_MODULE_12__app_routes__["a" /* routing */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_9__services_iotp_ibmIoTP_service__["a" /* IBMIoTPService */],
@@ -459,7 +464,7 @@ var HeaderComponent = (function () {
 HeaderComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
         selector: 'header-component',
-        template: "\n    <header>\n        <div class=\"container noTopPadding\">\n            <div class=\"floatLeft productTitle productTitleWide\">\n                <a [routerLink]=\"['/']\">\n                <img src=\"assets/img/iotp.png\" class=\"floatLeft\" style=\"width: 55px; margin-right: 15px; margin-top: -2px;\">\n                Plant Floor Monitor - <strong>Conveyor Status</strong>\n                </a>\n            </div>\n            \n            <div class=\"floatRight\">\n                <p class=\"floatRight medium-show large-hide\">\n                    <a href=\"#\" class=\"btn btn-demo em-Modal-Call\" rel=\"loginModal\">\n                        <i class=\"icon-menu\"></i>\n                    </a>\n                </p>\n            </div>\n        </div>\n    </header>"
+        template: "\n    <header>\n        <div class=\"container noTopPadding\">\n            <div class=\"floatLeft productTitle productTitleWide\">\n                <a [routerLink]=\"['/']\">\n                <img src=\"assets/img/iotp.png\" class=\"floatLeft\" style=\"width: 30px; margin-right: 15px; margin-top: 9px;\">\n                Plant Floor Monitor - <strong>Conveyor Status</strong>\n                </a>\n            </div>\n            \n            <div class=\"floatRight\">\n                <p class=\"floatRight medium-show large-hide\">\n                    <a href=\"#\" class=\"btn btn-demo em-Modal-Call\" rel=\"loginModal\">\n                        <i class=\"icon-menu\"></i>\n                    </a>\n                </p>\n            </div>\n        </div>\n    </header>"
     })
 ], HeaderComponent);
 
@@ -547,7 +552,7 @@ module.exports = "<header-component></header-component>\n\n<div class=\"content\
 /***/ 555:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-50 noTopPadding container-30-right ng-scope\">\n    <div class=\"floatLeft\">\n        <h4>Devices Registered</h4>\n    </div>\n</div>\n\n<div class=\"clearfix ng-scope\"></div>\n\n<div class=\"statusBar marginTop-15 ng-scope\">\n    <div class=\"container-50 row noOffsetRow\">\n        <div class=\"column-6-lg column-6-med column-6-sm\">\n            <strong>Total Devices Registered</strong>\n\n            <strong class=\"vehicleStats orange\">\n                <i class=\"icon-car iconMarginRight white\"></i> {{devices !== undefined ? devices.length : \"--\"}}\n            </strong>\n        </div>\n    </div>\n</div>\n\n<div *ngIf=\"this.devices !== undefined && this.devices.length > 0\" class=\"container-50 paddingTop\">\n      <div class=\"floatRight\">\n        <!--<a href=\"#\">Manage Devices</a>-->\n      </div>\n      \n      <div class=\"dashItem ng-scope\" ng-if=\"$ctrl.regions\">\n        <div class=\"dashTitleBar\">\n            <h3>Live Data Connection {{mqttStatus ? '✅' : '❌'}}</h3>\n        </div>\n\n        <div class=\"primary\">\n            <table class=\"table\">\n                <thead>\n                    <tr>\n                        <th>#</th>\n                        <th>Device ID</th>\n                        <th>RPM</th>\n                        <th>Running</th>\n                        <th>Last Updated</th>\n                        <th>Live Data</th>\n                    </tr>\n                </thead>\n\n                <tbody>\n                    <tr *ngFor=\"let device of devices; let i = index;\">\n                        <td>{{i + 1}}</td>\n                        <td>{{device.deviceId}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? device.data.rpm : \"--\"}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? device.data.running : \"--\"}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? (device.data.ts | date:'medium') : \"--\"}}</td>\n                        <td class=\"align-right\"><input type=\"checkbox\" [(ngModel)]=\"mqttStatus && liveData[i]\" [disabled]=\"!mqttStatus\" (change)=\"setLiveData(i, $event.target.checked === true ? true : false);\"></td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n</div>\n\n<div class=\"container-50 paddingTop\">\n    <strong *ngIf=\"this.devices !== undefined && this.devices.length === 0\">\n        No Devices Found\n    </strong>\n\n    <strong *ngIf=\"this.devices === undefined && errorMessage === undefined\">\n        Loading Devices...\n    </strong>\n\n    <strong *ngIf=\"this.devices === undefined && errorMessage !== undefined\">\n        Something went wrong!\n    </strong>\n</div>"
+module.exports = "<div class=\"container-50 noTopPadding container-30-right\">\n    <div class=\"floatLeft\">\n        <h4>Total Devices Registered</h4>\n\n        <span class=\"lightBlue\" style=\"font-size: 45px; font-weight: 700;\">\n            {{devices !== undefined ? devices.length : \"--\"}}\n        </span>\n    </div>\n</div>\n\n<div class=\"clearfix\"></div>\n\n<div *ngIf=\"this.devices !== undefined && this.devices.length > 0\" class=\"container-50 paddingTop\">\n      <div class=\"floatRight\">\n        <!--<a href=\"#\">Manage Devices</a>-->\n      </div>\n      \n      <div class=\"dashItem ng-scope\" ng-if=\"$ctrl.regions\">\n        <div class=\"dashTitleBar\">\n            <h3>Live Data Connection {{mqttStatus ? '✅' : '❌'}}</h3>\n        </div>\n\n        <div>\n            <table class=\"table\">\n                <thead>\n                    <tr>\n                        <th>#</th>\n                        <th>Device ID</th>\n                        <th>RPM</th>\n                        <th>Running</th>\n                        <th>Last Event</th>\n                        <th>Auto Refresh</th>\n                    </tr>\n                </thead>\n\n                <tbody>\n                    <tr *ngFor=\"let device of devices; let i = index;\">\n                        <td>{{i + 1}}</td>\n                        <td>{{device.deviceId}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? device.data.rpm : \"--\"}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? device.data.running : \"--\"}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? (device.data.ts | date:'medium') : \"--\"}}</td>\n                        <td class=\"align-right\"><input type=\"checkbox\" [(ngModel)]=\"mqttStatus && liveData[i]\" [disabled]=\"!mqttStatus\" (change)=\"setLiveData(i, $event.target.checked === true ? true : false);\"></td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n</div>\n\n<div class=\"container-50 paddingTop\">\n    <strong *ngIf=\"this.devices !== undefined && this.devices.length === 0\">\n        No Devices Found\n    </strong>\n\n    <strong *ngIf=\"this.devices === undefined && errorMessage === undefined\">\n        Loading Devices...\n    </strong>\n\n    <strong *ngIf=\"this.devices === undefined && errorMessage !== undefined\">\n        Something went wrong!\n    </strong>\n</div>"
 
 /***/ }),
 
@@ -570,6 +575,63 @@ module.exports = "<div class=\"container-50 noTopPadding container-30-right\">\n
 
 module.exports = __webpack_require__(356);
 
+
+/***/ }),
+
+/***/ 584:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrderBy; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var OrderBy = (function () {
+    function OrderBy() {
+    }
+    OrderBy.prototype.transform = function (obj, field) {
+        // Ascending order
+        var orderASC = true;
+        if (field[0] === '-') {
+            field = field.substring(1);
+            orderASC = false;
+        }
+        obj.sort(function (a, b) {
+            var aField = a[field], bField = b[field];
+            if (isNaN(aField))
+                aField.toLowerCase();
+            if (isNaN(bField))
+                bField.toLowerCase();
+            // If order is ascending
+            if (orderASC) {
+                if (aField < bField)
+                    return -1;
+                if (aField > bField)
+                    return 1;
+                return 0;
+            }
+            else {
+                if (aField < bField)
+                    return 1;
+                if (aField > bField)
+                    return -1;
+                return 0;
+            }
+        });
+        return obj;
+    };
+    return OrderBy;
+}());
+OrderBy = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* Pipe */])({ name: 'orderBy' })
+], OrderBy);
+
+//# sourceMappingURL=orderby.pipe.js.map
 
 /***/ })
 

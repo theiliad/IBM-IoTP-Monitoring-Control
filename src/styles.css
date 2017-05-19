@@ -8,7 +8,6 @@
  * You may not use this file except in compliance with the license.
  */
 /*
-Theme Name: System Monitoring Web UI
 Author: IBM Watson IoT
 Author URI: http://www.ibm.com/internet-of-things/
 
@@ -24,12 +23,6 @@ Author URI: http://www.ibm.com/internet-of-things/
 8. Main Content - Vehicle
 9. Angular Styles
 10. Grid System
-11. VIBE Modal Module
-12. General Media Queries
-13. Twitter Bootstrap Styles
-14. Real-Time Map Styles
-15. C3 Styles
-16. OpenLayers Styles
 
 */
 
@@ -47,6 +40,7 @@ Author URI: http://www.ibm.com/internet-of-things/
 body {
     font-family: 'Helvetica Neue for IBM', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', sans-serif;
     font-weight: 300;
+    color: #3a3a3a;
 }
 
 .clearfix {
@@ -55,7 +49,7 @@ body {
 
 a {
     text-decoration: none;
-    color: #3e78bc;
+    color: #1995ce;
 }
 
 strong {
@@ -180,7 +174,7 @@ i.iconBlock {
 }
 
 .lightBlue {
-    color: #78b2d8;
+    color: #1995ce;
 }
 
 .cyan {
@@ -225,7 +219,7 @@ i.iconBlock {
 header {
     width: 100%;
     height: 50px;
-    background: #1b3649;
+    background: #1995ce;
     color: #fff;
     z-index: 1000;
     font-size: 17px;
@@ -246,8 +240,8 @@ header .userImg {
 }
 
 header .userImg img {
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
 }
 
 
@@ -456,7 +450,7 @@ ul.citiesNavTabs li a:hover {
 ul.citiesNavTabs li.active a {
     opacity: 1;
     color: #fff;
-    background: #3e78bc;
+    background: #1995ce;
 }
 
 @media (max-width:767px) {
@@ -473,8 +467,8 @@ ul.citiesNavTabs li.active a {
     padding-bottom: 10px;
     margin-bottom: 15px;
     font-weight: 400;
-    color: #3e78bc;
-    border-bottom: 3px solid #3e78bc;
+    color: #1995ce;
+    border-bottom: 3px solid #1995ce;
 }
 
 

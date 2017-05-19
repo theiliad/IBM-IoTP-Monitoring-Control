@@ -1,22 +1,14 @@
-<div class="container-50 noTopPadding container-30-right ng-scope">
+<div class="container-50 noTopPadding container-30-right">
     <div class="floatLeft">
-        <h4>Devices Registered</h4>
+        <h4>Total Devices Registered</h4>
+
+        <span class="lightBlue" style="font-size: 45px; font-weight: 700;">
+            {{devices !== undefined ? devices.length : "--"}}
+        </span>
     </div>
 </div>
 
-<div class="clearfix ng-scope"></div>
-
-<div class="statusBar marginTop-15 ng-scope">
-    <div class="container-50 row noOffsetRow">
-        <div class="column-6-lg column-6-med column-6-sm">
-            <strong>Total Devices Registered</strong>
-
-            <strong class="vehicleStats orange">
-                <i class="icon-car iconMarginRight white"></i> {{devices !== undefined ? devices.length : "--"}}
-            </strong>
-        </div>
-    </div>
-</div>
+<div class="clearfix"></div>
 
 <div *ngIf="this.devices !== undefined && this.devices.length > 0" class="container-50 paddingTop">
       <div class="floatRight">
@@ -28,7 +20,7 @@
             <h3>Live Data Connection {{mqttStatus ? '✅' : '❌'}}</h3>
         </div>
 
-        <div class="primary">
+        <div>
             <table class="table">
                 <thead>
                     <tr>
@@ -36,8 +28,8 @@
                         <th>Device ID</th>
                         <th>RPM</th>
                         <th>Running</th>
-                        <th>Last Updated</th>
-                        <th>Live Data</th>
+                        <th>Last Event</th>
+                        <th>Auto Refresh</th>
                     </tr>
                 </thead>
 
