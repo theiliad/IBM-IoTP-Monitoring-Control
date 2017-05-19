@@ -43,7 +43,7 @@
                         </th>
                         
                         <th class="bx--table-header">
-                            Running
+                            State
                         </th>
                         
                         <th class="bx--table-header">
@@ -61,7 +61,7 @@
                         <td>{{(currentPage-1)*limit+(i + 1)}}</td>
                         <td>{{device.deviceId}}</td>
                         <td class="align-right">{{device.data !== undefined ? device.data.rpm : "--"}}</td>
-                        <td class="align-right">{{device.data !== undefined ? device.data.running : "--"}}</td>
+                        <td class="align-right">{{device.data !== undefined ? (device.data.running ? "Running" : "Stopped") : "--"}}</td>
                         <td class="align-right">{{device.data !== undefined ? (device.data.ts | date:'medium') : "--"}}</td>
                         <td class="align-right">
                             <div class="bx--form-item bx--checkbox-wrapper">
