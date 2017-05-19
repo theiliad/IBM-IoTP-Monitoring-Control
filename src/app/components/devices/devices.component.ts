@@ -143,15 +143,15 @@ export class DevicesComponent implements OnInit {
   }
 
   setLiveData(index, turnOn) {
+    var deviceId = this.devices[index].deviceId;
+
     if (turnOn) {
-      console.log("Turn ON Live Data for", this.devices[index].deviceId);
-
-      this.liveData[index] = true;
+      console.log("Turn ON Live Data for", deviceId);
     } else {
-      console.log("Turn OFF Live Data for", this.devices[index].deviceId);
-
-      this.liveData[index] = false;
+      console.log("Turn OFF Live Data for", deviceId);
     }
+
+    this.liveData[deviceId] = turnOn;
 
     const socketData = {
       deviceId: this.devices[index].deviceId,
