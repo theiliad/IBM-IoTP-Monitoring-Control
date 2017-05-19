@@ -26,7 +26,7 @@ Author URI: http://www.ibm.com/internet-of-things/
 
 */
 
-@import url('assets/reset.css');
+@import 'reset.css';
 
 
 
@@ -778,10 +778,10 @@ strong.vehicleStats i {
 }
 
 /* small */
-@media (min-width: 768px and max-width: 991px) { }
+@media (min-width: 768px) and (max-width: 991px) { }
 
 /* med */
-@media (min-width: 992px and max-width: 1199px) { }
+@media (min-width: 992px) and (max-width: 1199px) { }
 
 /* large */
 @media (min-width: 1200px) {
