@@ -16,6 +16,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'src/app/assets')));
 app.use(express.static(path.join(__dirname, 'static')));
 
+app.use('/assets/img/carbon-icons.svg', express.static(__dirname + '/node_modules/carbon-icons/dist/carbon-icons.svg'));
+
 // IoT Platform Connectivity related info
 var basicConfig;
 

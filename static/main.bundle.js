@@ -317,6 +317,8 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_svgxuse__ = __webpack_require__(576);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_svgxuse___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_svgxuse__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -324,6 +326,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 var AppComponent = (function () {
     function AppComponent() {
@@ -547,7 +550,7 @@ module.exports = "<header-component></header-component>\n\n<div class=\"content\
 /***/ 555:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-50 noTopPadding container-30-right\">\n    <div class=\"floatLeft\">\n        <h4>Total Devices Registered</h4>\n\n        <span class=\"lightBlue\" style=\"font-size: 45px; font-weight: 700;\">\n            {{devices !== undefined ? devices.length : \"--\"}}\n        </span>\n    </div>\n</div>\n\n<div class=\"clearfix\"></div>\n\n<div *ngIf=\"this.devices !== undefined && this.devices.length > 0\" class=\"container-50 paddingTop\">\n      <div class=\"floatRight\">\n        <!--<a href=\"#\">Manage Devices</a>-->\n      </div>\n      \n      <div class=\"dashItem ng-scope\" ng-if=\"$ctrl.regions\">\n        <div class=\"dashTitleBar\">\n            <h3>Live Data Connection {{mqttStatus ? '✅' : '❌'}}</h3>\n        </div>\n\n        <div>\n            <table class=\"table\">\n                <thead>\n                    <tr>\n                        <th>#</th>\n                        <th>Device ID</th>\n                        <th>RPM</th>\n                        <th>Running</th>\n                        <th>Last Event</th>\n                        <th>Auto Refresh</th>\n                    </tr>\n                </thead>\n\n                <tbody>\n                    <tr *ngFor=\"let device of devices; let i = index;\">\n                        <td>{{i + 1}}</td>\n                        <td>{{device.deviceId}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? device.data.rpm : \"--\"}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? device.data.running : \"--\"}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? (device.data.ts | date:'medium') : \"--\"}}</td>\n                        <td class=\"align-right\"><input type=\"checkbox\" [(ngModel)]=\"mqttStatus && liveData[i]\" [disabled]=\"!mqttStatus\" (change)=\"setLiveData(i, $event.target.checked === true ? true : false);\"></td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n</div>\n\n<div class=\"container-50 paddingTop\">\n    <strong *ngIf=\"this.devices !== undefined && this.devices.length === 0\">\n        No Devices Found\n    </strong>\n\n    <strong *ngIf=\"this.devices === undefined && errorMessage === undefined\">\n        Loading Devices...\n    </strong>\n\n    <strong *ngIf=\"this.devices === undefined && errorMessage !== undefined\">\n        Something went wrong!\n    </strong>\n</div>"
+module.exports = "<div class=\"container-50 noTopPadding container-30-right\">\n    <div class=\"floatLeft\">\n        <h4>Total Devices Registered</h4>\n\n        <span class=\"lightBlue\" style=\"font-size: 45px; font-weight: 700;\">\n            {{devices !== undefined ? devices.length : \"--\"}}\n        </span>\n    </div>\n</div>\n\n<div class=\"clearfix\"></div>\n\n<div *ngIf=\"this.devices !== undefined && this.devices.length > 0\" class=\"container-50 paddingTop\">\n      <div class=\"floatRight\">\n        <!--<a href=\"#\">Manage Devices</a>-->\n      </div>\n      \n      <div class=\"dashItem ng-scope\" ng-if=\"$ctrl.regions\">\n        <div class=\"dashTitleBar\">\n            <h3>Live Data Connection {{mqttStatus ? '✅' : '❌'}}</h3>\n        </div>\n\n        <div class=\"bx--responsive-table-container\" data-responsive-table>\n            <table class=\"bx--responsive-table bx--responsive-table--static-size\" style=\"width: 100%;\" data-table>\n                <thead class=\"bx--table-head\">\n                    <tr class=\"bx--table-row\">\n                        <th class=\"bx--table-header\">\n                            <span>#</span>\n                        </th>\n\n                        <th class=\"bx--table-header bx--table-sort\" data-event=\"sort\">\n                            Device ID\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--down\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header bx--table-sort\" data-event=\"sort\">\n                            RPM\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--up\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header bx--table-sort\" data-event=\"sort\">\n                            Running\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--up\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header bx--table-sort\" data-event=\"sort\">\n                            Last Event\n\n                            <svg class=\"bx--table-sort__svg\">\n                                <use xlink:href=\"/assets/img/carbon-icons.svg#icon--caret--up\"></use>\n                            </svg>\n                        </th>\n                        \n                        <th class=\"bx--table-header\">\n                            Auto Refresh\n                        </th>\n                    </tr>\n                </thead>\n\n                <tbody class=\"bx--table-body\">\n                    <tr class=\"bx--table-row bx--parent-row\" data-parent-row *ngFor=\"let device of devices; let i = index;\">\n                        <td>{{i + 1}}</td>\n                        <td>{{device.deviceId}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? device.data.rpm : \"--\"}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? device.data.running : \"--\"}}</td>\n                        <td class=\"align-right\">{{device.data !== undefined ? (device.data.ts | date:'medium') : \"--\"}}</td>\n                        <td class=\"align-right\">\n                            <div class=\"bx--form-item bx--checkbox-wrapper\">\n                                <input id=\"bx--checkbox-{{i}}\" class=\"bx--checkbox\" type=\"checkbox\" value=\"red\" name=\"checkbox\"\n                                       [(ngModel)]=\"mqttStatus && liveData[i]\" [disabled]=\"!mqttStatus\"\n                                       (change)=\"setLiveData(i, $event.target.checked === true ? true : false);\">\n\n                                <label for=\"bx--checkbox-{{i}}\" class=\"bx--checkbox-label\">\n                                    <span class=\"bx--checkbox-appearance\">\n                                        <svg class=\"bx--checkbox-checkmark\">\n                                            <use xlink:href=\"/assets/img/carbon-icons.svg#icon--checkmark\"></use>\n                                        </svg>\n                                    </span>\n                                </label>\n                            </div>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n</div>\n\n<div class=\"container-50 paddingTop\">\n    <strong *ngIf=\"this.devices !== undefined && this.devices.length === 0\">\n        No Devices Found\n    </strong>\n\n    <strong *ngIf=\"this.devices === undefined && errorMessage === undefined\">\n        Loading Devices...\n    </strong>\n\n    <strong *ngIf=\"this.devices === undefined && errorMessage !== undefined\">\n        Something went wrong!\n    </strong>\n</div>"
 
 /***/ }),
 
@@ -558,14 +561,14 @@ module.exports = "<div class=\"container-50 noTopPadding container-30-right\">\n
 
 /***/ }),
 
-/***/ 580:
+/***/ 581:
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
 
-/***/ 581:
+/***/ 582:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(356);
@@ -573,5 +576,5 @@ module.exports = __webpack_require__(356);
 
 /***/ })
 
-},[581]);
+},[582]);
 //# sourceMappingURL=main.bundle.js.map

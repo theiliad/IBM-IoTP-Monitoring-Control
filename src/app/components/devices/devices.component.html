@@ -20,27 +20,74 @@
             <h3>Live Data Connection {{mqttStatus ? '✅' : '❌'}}</h3>
         </div>
 
-        <div>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Device ID</th>
-                        <th>RPM</th>
-                        <th>Running</th>
-                        <th>Last Event</th>
-                        <th>Auto Refresh</th>
+        <div class="bx--responsive-table-container" data-responsive-table>
+            <table class="bx--responsive-table bx--responsive-table--static-size" style="width: 100%;" data-table>
+                <thead class="bx--table-head">
+                    <tr class="bx--table-row">
+                        <th class="bx--table-header">
+                            <span>#</span>
+                        </th>
+
+                        <th class="bx--table-header bx--table-sort" data-event="sort">
+                            Device ID
+
+                            <svg class="bx--table-sort__svg">
+                                <use xlink:href="/assets/img/carbon-icons.svg#icon--caret--down"></use>
+                            </svg>
+                        </th>
+                        
+                        <th class="bx--table-header bx--table-sort" data-event="sort">
+                            RPM
+
+                            <svg class="bx--table-sort__svg">
+                                <use xlink:href="/assets/img/carbon-icons.svg#icon--caret--up"></use>
+                            </svg>
+                        </th>
+                        
+                        <th class="bx--table-header bx--table-sort" data-event="sort">
+                            Running
+
+                            <svg class="bx--table-sort__svg">
+                                <use xlink:href="/assets/img/carbon-icons.svg#icon--caret--up"></use>
+                            </svg>
+                        </th>
+                        
+                        <th class="bx--table-header bx--table-sort" data-event="sort">
+                            Last Event
+
+                            <svg class="bx--table-sort__svg">
+                                <use xlink:href="/assets/img/carbon-icons.svg#icon--caret--up"></use>
+                            </svg>
+                        </th>
+                        
+                        <th class="bx--table-header">
+                            Auto Refresh
+                        </th>
                     </tr>
                 </thead>
 
-                <tbody>
-                    <tr *ngFor="let device of devices; let i = index;">
+                <tbody class="bx--table-body">
+                    <tr class="bx--table-row bx--parent-row" data-parent-row *ngFor="let device of devices; let i = index;">
                         <td>{{i + 1}}</td>
                         <td>{{device.deviceId}}</td>
                         <td class="align-right">{{device.data !== undefined ? device.data.rpm : "--"}}</td>
                         <td class="align-right">{{device.data !== undefined ? device.data.running : "--"}}</td>
                         <td class="align-right">{{device.data !== undefined ? (device.data.ts | date:'medium') : "--"}}</td>
-                        <td class="align-right"><input type="checkbox" [(ngModel)]="mqttStatus && liveData[i]" [disabled]="!mqttStatus" (change)="setLiveData(i, $event.target.checked === true ? true : false);"></td>
+                        <td class="align-right">
+                            <div class="bx--form-item bx--checkbox-wrapper">
+                                <input id="bx--checkbox-{{i}}" class="bx--checkbox" type="checkbox" value="red" name="checkbox"
+                                       [(ngModel)]="mqttStatus && liveData[i]" [disabled]="!mqttStatus"
+                                       (change)="setLiveData(i, $event.target.checked === true ? true : false);">
+
+                                <label for="bx--checkbox-{{i}}" class="bx--checkbox-label">
+                                    <span class="bx--checkbox-appearance">
+                                        <svg class="bx--checkbox-checkmark">
+                                            <use xlink:href="/assets/img/carbon-icons.svg#icon--checkmark"></use>
+                                        </svg>
+                                    </span>
+                                </label>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>

@@ -2,6 +2,10 @@ import { Component, OnInit }    from '@angular/core';
 import { IBMIoTPService }       from '../../services/iotp/ibmIoTP.service';
 import { LiveDataService }      from '../../services/livedata/liveData.service';
 
+// Carbon Design Framework
+import { DataTable }            from 'carbon-components';
+import { Checkbox }             from 'carbon-components';
+
 @Component({
   templateUrl: './devices.component.html',
 })

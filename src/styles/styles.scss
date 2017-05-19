@@ -28,6 +28,10 @@ Author URI: http://www.ibm.com/internet-of-things/
 
 @import 'reset.css';
 
+// Carbon Design Framework
+@import 'node_modules/carbon-components/scss/components/checkbox/checkbox';
+@import 'node_modules/carbon-components/scss/components/data-table/data-table';
+
 
 
 /* === 1. General + Commonly Used Styles === */
