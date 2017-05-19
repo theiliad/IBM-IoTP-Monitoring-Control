@@ -331,9 +331,12 @@ var IBMIoTPService = (function () {
         this.statusURL = "/service-status";
         this.lastCachedEventURL = "/device/types/" + this.deviceType + "/devices/{deviceId}/events/sensorData";
     }
-    IBMIoTPService.prototype.getDevices = function () {
-        var url = this.baseURL.concat(this.devicesURL) + "?_limit=10";
-        return this.http.get(url)
+    IBMIoTPService.prototype.getDevices = function (requestParams) {
+        var url = this.baseURL.concat(this.devicesURL);
+        var params = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* URLSearchParams */]();
+        params.set('_limit', requestParams ? requestParams.limit : '10');
+        params.set('_sort', requestParams ? requestParams.orderBy : 'deviceId');
+        return this.http.get(url, { params: params })
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
@@ -360,7 +363,7 @@ var IBMIoTPService = (function () {
 }());
 IBMIoTPService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */]) === "function" && _a || Object])
 ], IBMIoTPService);
 
 var _a;

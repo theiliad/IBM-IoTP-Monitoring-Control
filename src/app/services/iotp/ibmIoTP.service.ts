@@ -1,5 +1,5 @@
 import { Injectable }              from '@angular/core';
-import { Http, Response, Headers, RequestOptions }          from '@angular/http';
+import { Http, Response, Headers, RequestOptions, URLSearchParams }          from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
@@ -17,10 +17,14 @@ export class IBMIoTPService {
 
     constructor(private http: Http) {}
 
-    getDevices(): Promise<Object> {
-        const url = this.baseURL.concat(this.devicesURL) + "?_limit=10";
+    getDevices(requestParams?): Promise<Object> {
+        const url = this.baseURL.concat(this.devicesURL);
 
-        return this.http.get(url)
+        const params: URLSearchParams = new URLSearchParams();
+        params.set('_limit', requestParams ? requestParams.limit   : '10');
+        params.set('_sort',  requestParams ? requestParams.orderBy : 'deviceId');
+        
+        return this.http.get(url, {params: params})
                 .toPromise()
                 .then(response => response.json())
                 .catch(this.handleError);
