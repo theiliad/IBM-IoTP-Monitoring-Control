@@ -12,7 +12,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 {
   "org":      "{{your_org_ID}}",
   "apiKey":   "{{your_API_key}}",
-  "apiToken": "{{your_API_token}}*"
+  "apiToken": "{{your_API_token}}"
 }
 ```
 4. Run `npm run build-run` to build the project and start the app.
@@ -28,6 +28,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 {
   "org":      "{{your_org_ID}}",
   "apiKey":   "{{your_API_key}}",
-  "apiToken": "{{your_API_token}}*"
+  "apiToken": "{{your_API_token}}"
 }
 ```
