@@ -4,7 +4,6 @@ const express         = require('express')
       , bodyParser    = require('body-parser')
       , proxy         = require('http-proxy-middleware')
       , socketServer  = require('socket.io')
-      , mqtt          = require('mqtt')
       , iotf          = require('ibmiotf');
 
 var io;
