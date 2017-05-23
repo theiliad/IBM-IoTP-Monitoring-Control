@@ -1,7 +1,14 @@
 # MonitoringControl
 <img src="preview.jpg" />
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.1.
+## Set-up
+In your IBM Watson IoT Platform service, generate a new application API key.
+Watson IoTP `<wiotp-org-id>.internetofthings.ibmcloud.com/dashboard/#/apps/apikeys-v2`
+
+Set the application permissions to the lowest level it requires: Visualization Application. If you add more features to the application, you'll need to elevate it to a higher role.
+
+
+Docs: https://bluemix.net/docs/services/IoT/platform_authorization.html#api-key
 
 ## To Run Locally
 
@@ -31,3 +38,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   "apiToken": "{{your_API_token}}"
 }
 ```
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.1.
