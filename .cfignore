@@ -2,6 +2,8 @@
 # https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#exclude and
 # http://help.github.com/ignore-files/
 
+basicConfig.json
+
 # compiled output
 /dist
 /tmp
@@ -41,3 +43,10 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
+node_modules/
+README.md
+.github/
+.git/
+.gitignore
+logs
+*.log
