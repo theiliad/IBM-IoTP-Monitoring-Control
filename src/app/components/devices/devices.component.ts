@@ -61,11 +61,11 @@ export class DevicesComponent implements OnInit {
       } else if (message["type"] === "mqtt_status") {
         this.mqttStatus = message["text"].connected;
       }
-
-      this.mqttStatusInquiry();
     });
     
     this.getDevices();
+
+    this.mqttStatusInquiry();
   }
 
   getDevices(bookmark?: string, pagination?: string) {
@@ -155,7 +155,7 @@ export class DevicesComponent implements OnInit {
 
     const socketData = {
       deviceId: this.devices[index].deviceId,
-      turnOn: this.liveData[index]
+      turnOn: this.liveData[deviceId]
     };
     
     this.liveDataService.sendMessage('mqtt_set', JSON.stringify(socketData));

@@ -37,6 +37,7 @@
     "express": "~4.14.0",
     "hbs": "~4.0.1",
     "http-proxy-middleware": "^0.17.4",
+    "ibmiotf": "^0.2.34",
     "morgan": "~1.7.0",
     "mqtt": "^2.7.1",
     "rxjs": "^5.1.0",

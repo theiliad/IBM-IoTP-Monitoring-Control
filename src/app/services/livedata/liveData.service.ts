@@ -17,6 +17,8 @@ export class LiveDataService {
   }
   
   sendMessage(topic, message){
+    console.log("TOPIC: ", topic);
+
     this.socket.emit(topic, message);
   }
   
