@@ -28,27 +28,15 @@ function configureCredentials(config) {
 try {
 	var BASIC_CONFIG = require(__dirname + '/basicConfig.json');
 
-  if (process.env.basicConfig) {
-		configureCredentials(JSON.parse(process.env.basicConfig));
-	} else {
-		configureCredentials(BASIC_CONFIG);
-	}
+	configureCredentials(BASIC_CONFIG);
 } catch (error) {
-	console.log(error);
-	console.log("Fallback to Bluemix VCAP_SERVICES");
-
-	if (process.env.VCAP_SERVICES) {
-		configureCredentials(JSON.parse(process.env.basicConfig));
-	} else {
-		console.log("ERROR: IoT Service was not bound!");
-	}
+	console.log("Please add 'basicConfig.json' into the root folder with your IoT Platform credentials", error);
 }
 
 const org         = basicConfig.org
     , apiKey      = basicConfig.apiKey
     , apiToken    = basicConfig.apiToken
     , appId       = "test2f23f232";
-
 
 /* ===== IBM IoT Client Configs - START ===== */
 var appClientConfig = {
