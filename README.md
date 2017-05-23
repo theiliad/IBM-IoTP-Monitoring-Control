@@ -22,7 +22,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 1. Run **`npm install -g @angular/cli`** to install the Angular CLI
 2. Run **`npm install`**
-3. Run `npm run push` to build the project and push using **Cloud Foundry**.
+3. Run **`npm run push`** to build the project and push using **Cloud Foundry**.
 4. Go to Bluemix, create an environment variable for your Bluemix app called **basicConfig** with this content:
 ```json
 {
