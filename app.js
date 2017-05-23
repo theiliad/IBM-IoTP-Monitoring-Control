@@ -80,7 +80,7 @@ try {
     password:   apiToken,
     keepalive:  0
   });
-
+  
   mqttClient.on('connect', function () {
     console.log("MQTT CONNECTED");
     // mqttClient.publish('presence', 'Hello mqtt')
