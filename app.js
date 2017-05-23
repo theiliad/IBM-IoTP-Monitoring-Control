@@ -92,38 +92,52 @@ app.use('/api/**', proxy(
 const iot_host    = `wss://${org}.messaging.internetofthings.ibmcloud.com`
   , iot_clientid  = `a:${org}:${appId}`;
 
-try {
-  appClient.connect();
+// When the IoT client connects successfully
+appClient.on("connect", function () {
+  console.log("IoTF client connected");
+  
+  console.log(devicesToSubscribeTo);
 
-  appClient.on("connect", function () {
-    console.log("IoTF client connected to MQTT");
+  if (devicesToSubscribeTo.length > 0) {
+    for (deviceId of devicesToSubscribeTo) {
+      appClient.subscribeToDeviceEvents("iot-conveyor-belt", deviceId, "sensorData", "json");
 
-    // appClient.subscribeToDeviceEvents("myDeviceType","device01","+","json");
-
-    console.log(devicesToSubscribeTo);
-
-    if (devicesToSubscribeTo.length > 0) {
-      for (deviceId of devicesToSubscribeTo) {
-        appClient.subscribeToDeviceEvents("iot-conveyor-belt", deviceId, "sensorData", "json");
-
-        console.log(`Subscribed to ${deviceId}`);
-      }
-
-      devicesToSubscribeTo = [];
+      console.log(`Subscribed to ${deviceId}`);
     }
 
-    io.emit('message', {
-      type:'mqtt_status', text: {connected: true}
-    });
-  });
+    devicesToSubscribeTo = [];
+  }
 
-  appClient.on("deviceEvent", function (deviceType, deviceId, eventType, format, payload) {
-      console.log("Device Event from :: " + deviceType + " : " + deviceId + " of event " + eventType + " with payload : " + payload);
-
-      io.emit('message', {type: 'new_sensorData', text: payload.toString()});
+  io.emit('message', {
+    type:'mqtt_status', text: {connected: true}
   });
-} catch (e) {
-  console.error("Connect Unsuccessful", e);
+});
+
+appClient.on("disconnect", function () {
+  console.log("IoTF client disconnected");
+});
+
+// When there's a new device Event
+appClient.on("deviceEvent", function (deviceType, deviceId, eventType, format, payload) {
+    console.log("Device Event from :: " + deviceType + " : " + deviceId + " of event " + eventType + " with payload : " + payload);
+
+    io.emit('message', {type: 'new_sensorData', text: payload.toString()});
+});
+
+function mqttConnect() {
+  try {
+    if (!appClient.isConnected) appClient.connect();
+  } catch (e) {
+    console.error("Connect Unsuccessful", e);
+  }
+}
+
+function mqttDisconnect() {
+  try {
+    if (appClient.isConnected) appClient.disconnect();
+  } catch (e) {
+    console.error("Disconnect Unsuccessful", e);
+  }
 }
 /* ===== MQTT mqttClient --> END ===== */
 
@@ -149,6 +163,8 @@ io = socketServer(httpServer);
 io.on('connection', (socket) => {
   console.log(`Socket ${socket.id} connected`);
 
+  if (!appClient.isConnected) mqttConnect();
+
   socketsOpen.push(socket.id);
 
   console.log("Sockets Open: ", socketsOpen);
@@ -160,6 +176,8 @@ io.on('connection', (socket) => {
     socketsOpen.splice(index, 1);
 
     console.log("Sockets Open: ", socketsOpen);
+
+    if (socketsOpen.length === 0) mqttDisconnect();
   });
   
   socket.on('new-data', (message) => {
