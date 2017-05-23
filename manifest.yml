@@ -1,6 +1,6 @@
 applications:
  - name: IoTMonitoringControl
    random-route: true
-   memory:       64M
+   memory:       128M
    disk_quota:   256M
    buildpack:    https://github.com/cloudfoundry/nodejs-buildpack
